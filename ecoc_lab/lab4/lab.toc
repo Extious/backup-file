@@ -1,0 +1,16 @@
+\contentsline {section}{\numberline {1}实验目的}{3}{}%
+\contentsline {section}{\numberline {2}实验内容}{3}{}%
+\contentsline {section}{\numberline {3}实验原理}{3}{}%
+\contentsline {subsection}{\numberline {3.1}AM}{3}{}%
+\contentsline {subsection}{\numberline {3.2}抑制载波双边带调幅}{3}{}%
+\contentsline {subsection}{\numberline {3.3}包络检波}{3}{}%
+\contentsline {subsection}{\numberline {3.4}同步检波}{5}{}%
+\contentsline {section}{\numberline {4}实验步骤}{5}{}%
+\contentsline {section}{\numberline {5}实验结果与分析}{6}{}%
+\contentsline {subsection}{\numberline {5.1}AM}{6}{}%
+\contentsline {subsubsection}{\numberline {5.1.1}时域波形与频谱}{6}{}%
+\contentsline {subsubsection}{\numberline {5.1.2}调幅指数对输出的影响}{6}{}%
+\contentsline {subsection}{\numberline {5.2}抑制载波双边带调幅}{8}{}%
+\contentsline {subsection}{\numberline {5.3}包络检波}{8}{}%
+\contentsline {subsection}{\numberline {5.4}同步检波}{8}{}%
+\contentsline {section}{\numberline {6}实验小结}{11}{}%

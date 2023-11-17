@@ -1,0 +1,269 @@
+
+
+Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
+                                                                                                           Tue Jul 11 19:47:49 2023
+
+
+     1                           	processor	16F18854
+     2                           	pagewidth 132
+     3                           	psect	udata_shr,global,class=COMMON,space=1,delta=1,noexec
+     4                           	psect	udata,global,class=RAM,space=1,delta=1,noexec
+     5                           	psect	udata_bank0,global,class=BANK0,space=1,delta=1,noexec
+     6                           	psect	udata_bank1,global,class=BANK1,space=1,delta=1,noexec
+     7                           	psect	udata_bank2,global,class=BANK2,space=1,delta=1,noexec
+     8                           	psect	udata_bank3,global,class=BANK3,space=1,delta=1,noexec
+     9                           	psect	udata_bank4,global,class=BANK4,space=1,delta=1,noexec
+    10                           	psect	udata_bank5,global,class=BANK5,space=1,delta=1,noexec
+    11                           	psect	udata_bank6,global,class=BANK6,space=1,delta=1,noexec
+    12                           	psect	code,global,class=CODE,delta=2
+    13                           	psect	data,global,class=STRCODE,delta=2,noexec
+    14                           	psect	edata,global,class=EEDATA,space=3,delta=2,noexec
+    15                           	psect	init,global,class=CODE,delta=2
+    16                           	psect	end_init,global,class=CODE,delta=2
+    17                           	psect	powerup,global,class=CODE,delta=2
+    18                           	psect	cinit,global,class=CODE,delta=2
+    19                           	psect	functab,global,class=ENTRY,delta=2
+    20                           	psect	idloc,global,class=IDLOC,delta=2,noexec
+    21                           	psect	eeprom_data,global,class=EEDATA,space=3,delta=2,noexec
+    22                           	psect	intentry,global,class=CODE,delta=2
+    23                           	psect	reset_vec,global,class=CODE,delta=2
+    24                           	psect	config,global,class=CONFIG,delta=2
+    25                           	psect	CommonVar,global,class=COMMON,space=1,delta=1
+    26                           	psect	main,global,class=CODE,delta=2
+    27                           	psect	pa_nodes0,global,class=CODE,delta=2
+    28     007F                     
+    29                           	psect	edata
+    30     0000                     stk_offset	set	0
+    31     0000                     auto_size	set	0
+    32                           
+    33                           ; stack_auto defines a symbol /name/_offset which equates to the
+    34                           ; stack offset of the auto object in question
+    35     0000                     
+    36                           ; stack_param defines a symbol /name/_offset which equates to the
+    37                           ; stack offset of the parameter object in question
+    38     0000                     
+    39                           ; alloc_stack adjusts the SP to allocate space for auto objects
+    40                           ; it also links in to the btemp symbol so that can be used
+    41     0000                     
+    42                           ; restore_stack adjusts the SP to remove all auto and parameter
+    43                           ; objects from the stack prior to returning from a function
+    44     0000                     
+    45                           	psect	cinit
+    46     0000                     start_initialization:
+    47                           
+    48                           	psect	intentry
+    49     00F2                     
+    50                           ; Interrupt service routine
+    51                           ; clear overflow flag
+    52     0004  002E               	banksel	1804
+    53     0005  128C               	bcf	1804,5
+    54                           
+    55                           ; output:
+    56     0006  2076               	call	func_output
+    57                           
+    58                           ;right shift position code
+    59     0007  0CF0               	rrf	240,f	;??
+    60                           
+    61                           ;use offset to search in table
+    62                           ;incf segOffset, f
+    63     0008  0871               	movf	241,w
+    64     0009  1877               	btfsc	247,0
+    65     000A  2052               	call	Table_1
+    66     000B  18F7               	btfsc	247,1
+    67     000C  2057               	call	Table_2
+    68     000D  1977               	btfsc	247,2
+    69     000E  205C               	call	Table_3
+    70     000F  19F7               	btfsc	247,3
+    71     0010  2061               	call	Table_4
+    72     0011  0AF1               	incf	241,f
+    73     0012  00F2               	movwf	242
+    74     0013  1D71               	btfss	241,2
+    75     0014  0009               	retfie
+    76     0015  2066               	call	func_delay_op
+    77     0016  2076               	call	func_output
+    78                           
+    79                           ; reset vars
+    80     0017  30F7               	movlw	247
+    81     0018  00F0               	movwf	240
+    82     0019  3000               	movlw	0
+    83     001A  01F1               	clrf	241
+    84     001B  0009               	retfie	; PIC10/12/16
+    85                           
+    86                           	psect	reset_vec
+    87     0000                     reset_vec:
+    88     0000  3180  281C  3180   	ljmp	_main
+    89                           
+    90                           	psect	config
+    91     8007  DFEC               	dw	57324
+    92     8008  F7FF               	dw	63487
+    93     8009  FFBF               	dw	65471
+    94     800A  EFFE               	dw	61438
+    95     800B  FFFF               	dw	65535
+    96                           
+    97                           	psect	CommonVar
+    98     0070                     charcase:
+    99     0070                     	ds	1
+   100                           
+   101                           	psect	main
+   102     001C                     _main:
+   103                           
+   104                           ;TODO
+   105                           ;PORTA config
+   106     001C  0020               	banksel	12
+   107     001D  018C               	clrf	12
+   108     001E  0020               	banksel	22
+   109     001F  0196               	clrf	22
+   110     0020  003E               	banksel	3896
+   111     0021  01B8               	clrf	3896
+   112     0022  0020               	banksel	17
+   113     0023  3000               	movlw	0
+   114     0024  0091               	movwf	17
+   115                           
+   116                           ;PORTB config
+   117     0025  0020               	banksel	14
+   118     0026  018E               	clrf	14
+   119     0027  0020               	banksel	24
+   120     0028  0198               	clrf	24
+   121     0029  003E               	banksel	3918
+   122     002A  01CE               	clrf	3918
+   123     002B  0020               	banksel	19
+   124     002C  3000               	movlw	0
+   125     002D  0093               	movwf	19
+   126                           
+   127                           ;TIMER0 config
+   128     002E  0020               	banksel	30
+   129     002F  3080               	movlw	128
+   130     0030  009E               	movwf	30
+   131     0031  0020               	banksel	31
+   132     0032  3050               	movlw	80
+   133     0033  009F               	movwf	31
+   134     0034  002E               	banksel	1804
+   135     0035  128C               	bcf	1804,5
+   136     0036  0020               	banksel	29
+   137     0037  307F               	movlw	127
+   138     0038  009D               	movwf	29
+   139                           
+   140                           ; INTERRUPT config
+   141     0039  002E               	banksel	1804
+   142     003A  128C               	bcf	1804,5
+   143                           
+   144                           ; ((INTCON) and 07Fh), 7, PIE enable
+   145     003B  0020               	banksel	11
+   146     003C  178B               	bsf	11,7
+   147     003D  170B               	bsf	11,6
+   148                           
+   149                           ; ((PIE0) and 07Fh), 5 enable
+   150     003E  002E               	banksel	1814
+   151     003F  1696               	bsf	1814,5
+   152                           
+   153                           ; go!
+   154     0040  204B               	call	set_pcode
+   155     0041  3001               	movlw	1
+   156     0042  00F7               	movwf	247
+   157     0043                     loop:
+   158     0043  1A77               	btfsc	247,4	;????1???????
+   159     0044  2048               	call	_reset_flag
+   160     0045  206C               	call	func_delay
+   161     0046  0DF7               	rlf	247,f	;????
+   162     0047  2843               	goto	loop
+   163     0048                     _reset_flag:
+   164     0048  3001               	movlw	1
+   165     0049  00F7               	movwf	247
+   166     004A  0008               	return
+   167     004B                     set_pcode:
+   168     004B  30F7               	movlw	247
+   169     004C  00F0               	movwf	240
+   170     004D  3001               	movlw	1
+   171     004E  00F1               	movwf	241
+   172     004F  3006               	movlw	6
+   173     0050  00F2               	movwf	242
+   174     0051  0008               	return
+   175     0052                     Table_1:
+   176                           
+   177                           ; Attention: ((PORTA) and 07Fh), 7 == ((PORTA) and 07Fh), 6
+   178     0052  0782               	addwf	2,f
+   179     0053  3406               	retlw	6	;1
+   180     0054  34DB               	retlw	219	;2
+   181     0055  34CF               	retlw	207	;3
+   182     0056  34E6               	retlw	230	;4
+   183     0057                     Table_2:
+   184                           
+   185                           ; Attention: ((PORTA) and 07Fh), 7 == ((PORTA) and 07Fh), 6
+   186     0057  0782               	addwf	2,f
+   187     0058  34E6               	retlw	230	;4
+   188     0059  3406               	retlw	6	;1
+   189     005A  34DB               	retlw	219	;2
+   190     005B  34CF               	retlw	207	;3
+   191     005C                     Table_3:
+   192                           
+   193                           ; Attention: ((PORTA) and 07Fh), 7 == ((PORTA) and 07Fh), 6
+   194     005C  0782               	addwf	2,f
+   195     005D  34CF               	retlw	207	;3
+   196     005E  34E6               	retlw	230	;4
+   197     005F  3406               	retlw	6	;1
+   198     0060  34DB               	retlw	219	;2
+   199     0061                     Table_4:
+   200                           
+   201                           ; Attention: ((PORTA) and 07Fh), 7 == ((PORTA) and 07Fh), 6
+   202     0061  0782               	addwf	2,f
+   203     0062  34DB               	retlw	219	;2
+   204     0063  34CF               	retlw	207	;3
+   205     0064  34E6               	retlw	230	;4
+   206     0065  3406               	retlw	6	;1
+   207     0066                     func_delay_op:
+   208     0066  0020               	banksel	0
+   209     0067  300A               	movlw	10
+   210     0068  00A2               	movwf	34
+   211     0069                     delay_1:
+   212     0069  0BA2               	decfsz	34,f
+   213     006A  2869               	goto	delay_1
+   214     006B  0008               	return
+   215     006C                     func_delay:
+   216     006C  0020               	banksel	0
+   217     006D  30C8               	movlw	200
+   218     006E  00A0               	movwf	32
+   219     006F                     delay_1_op:
+   220     006F  30C8               	movlw	200
+   221     0070  00A1               	movwf	33
+   222     0071                     delay_2_op:
+   223     0071  0BA1               	decfsz	33,f	;count2???
+   224     0072  2871               	goto	delay_2_op
+   225     0073  0BA0               	decfsz	32,f
+   226     0074  286F               	goto	delay_1_op
+   227     0075  0008               	return
+   228     0076                     func_output:
+   229                           
+   230                           ; TODO
+   231                           ; segment
+   232     0076  0020               	banksel	12
+   233     0077  0872               	movf	242,w
+   234     0078  008C               	movwf	12
+   235                           
+   236                           ; position
+   237     0079  0020               	banksel	14
+   238     007A  0870               	movf	240,w
+   239     007B  008E               	movwf	14
+   240     007C  0008               	return
+   241     007D                     exit:	
+   242                           ; END
+   243                           
+   244     007D  0000               	nop
+
+
+Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
+Symbol Table                                                                                               Tue Jul 11 19:47:49 2023
+
+                             PCL 0002                              LATA 0016                              LATC 0018  
+                            PIE0 0716                              PIR0 070C                              Flag 00F7  
+                            exit 007D                              loop 0043                             TMR0H 001D  
+                           PORTA 000C                             PORTC 000E                             TRISA 0011  
+                           TRISC 0013                             pCode 00F0                             _main 001C  
+                          ANSELA 0F38                            ANSELC 0F4E                            T0CON0 001E  
+                          T0CON1 001F                            INTCON 000B                            count1 0020  
+                          count2 0021                           Table_1 0052                           Table_2 0057  
+                         Table_3 005C                           Table_4 0061                           delay_1 0069  
+                         segCode 00F2                     func_delay_op 0066                          charcase 0070  
+                     _reset_flag 0048              start_initialization 0000                       func_output 0076  
+                      delay_1_op 006F                        delay_2_op 0071                        func_delay 006C  
+                       count1_op 0022                         segOffset 00F1                         reset_vec 0000  
+                       set_pcode 004B  

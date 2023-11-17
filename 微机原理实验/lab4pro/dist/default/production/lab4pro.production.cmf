@@ -1,0 +1,338 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$build/default/production/lab4pro.o
+main CODE 0 1C 1C 62 2 1
+intentry CODE 0 4 4 18 2 1
+reset_vec CODE 0 0 0 3 2 1
+CommonVar COMMON 1 70 70 1 1 1
+config CONFIG 0 8007 8007 5 2 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 20-6F 1
+RAM A0-EF 1
+RAM 120-16F 1
+RAM 1A0-1EF 1
+RAM 220-26F 1
+RAM 2A0-2EF 1
+RAM 320-32F 1
+BANK0 20-6F 1
+BANK1 A0-EF 1
+BANK2 120-16F 1
+BANK3 1A0-1EF 1
+BANK4 220-26F 1
+BANK5 2A0-2EF 1
+BANK6 320-32F 1
+CONST 3-3 2
+CONST 7E-FFF 2
+ENTRY 3-3 2
+ENTRY 7E-FFF 2
+IDLOC 8000-8003 2
+SFR10 500-56F 1
+SFR11 580-5EF 1
+SFR12 600-66F 1
+SFR13 680-6EF 1
+SFR14 700-76F 1
+SFR15 780-7EF 1
+SFR16 800-86F 1
+SFR17 880-8EF 1
+SFR18 900-96F 1
+SFR19 980-9EF 1
+SFR20 A00-A6F 1
+SFR21 A80-AEF 1
+SFR22 B00-B6F 1
+SFR23 B80-BEF 1
+SFR24 C00-C6F 1
+SFR25 C80-CEF 1
+SFR26 D00-D6F 1
+SFR27 D80-DEF 1
+SFR28 E00-E6F 1
+SFR29 E80-EEF 1
+SFR30 F00-F6F 1
+SFR31 F80-FEF 1
+CODE 3-3 2
+CODE 7E-FFF 2
+SFR0 6-7 1
+SFR2 100-11F 1
+SFR3 180-19F 1
+SFR4 200-21F 1
+SFR5 280-29F 1
+SFR6 300-31F 1
+SFR7 380-3EF 1
+SFR8 400-46F 1
+SFR9 480-4EF 1
+BIGRAM 2000-21EF 1
+COMMON 71-7F 1
+EEDATA F000-F0FF 2
+STRCODE 3-3 2
+STRCODE 7E-FFF 2
+STRING 3-3 2
+STRING 7E-FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$build/default/production/lab4pro.o
+1C main CODE >78:D:\lab4pro\lab4pro.s
+1D main CODE >79:D:\lab4pro\lab4pro.s
+1E main CODE >80:D:\lab4pro\lab4pro.s
+1F main CODE >81:D:\lab4pro\lab4pro.s
+20 main CODE >82:D:\lab4pro\lab4pro.s
+21 main CODE >83:D:\lab4pro\lab4pro.s
+22 main CODE >84:D:\lab4pro\lab4pro.s
+23 main CODE >85:D:\lab4pro\lab4pro.s
+24 main CODE >86:D:\lab4pro\lab4pro.s
+25 main CODE >89:D:\lab4pro\lab4pro.s
+26 main CODE >90:D:\lab4pro\lab4pro.s
+27 main CODE >91:D:\lab4pro\lab4pro.s
+28 main CODE >92:D:\lab4pro\lab4pro.s
+29 main CODE >93:D:\lab4pro\lab4pro.s
+2A main CODE >94:D:\lab4pro\lab4pro.s
+2B main CODE >95:D:\lab4pro\lab4pro.s
+2C main CODE >96:D:\lab4pro\lab4pro.s
+2D main CODE >97:D:\lab4pro\lab4pro.s
+2E main CODE >100:D:\lab4pro\lab4pro.s
+2F main CODE >101:D:\lab4pro\lab4pro.s
+30 main CODE >102:D:\lab4pro\lab4pro.s
+31 main CODE >103:D:\lab4pro\lab4pro.s
+32 main CODE >104:D:\lab4pro\lab4pro.s
+33 main CODE >105:D:\lab4pro\lab4pro.s
+34 main CODE >106:D:\lab4pro\lab4pro.s
+35 main CODE >107:D:\lab4pro\lab4pro.s
+36 main CODE >108:D:\lab4pro\lab4pro.s
+37 main CODE >109:D:\lab4pro\lab4pro.s
+38 main CODE >110:D:\lab4pro\lab4pro.s
+39 main CODE >113:D:\lab4pro\lab4pro.s
+3A main CODE >114:D:\lab4pro\lab4pro.s
+3B main CODE >116:D:\lab4pro\lab4pro.s
+3C main CODE >117:D:\lab4pro\lab4pro.s
+3D main CODE >118:D:\lab4pro\lab4pro.s
+3E main CODE >120:D:\lab4pro\lab4pro.s
+3F main CODE >121:D:\lab4pro\lab4pro.s
+40 main CODE >124:D:\lab4pro\lab4pro.s
+41 main CODE >126:D:\lab4pro\lab4pro.s
+42 main CODE >127:D:\lab4pro\lab4pro.s
+43 main CODE >129:D:\lab4pro\lab4pro.s
+44 main CODE >130:D:\lab4pro\lab4pro.s
+45 main CODE >131:D:\lab4pro\lab4pro.s
+46 main CODE >132:D:\lab4pro\lab4pro.s
+47 main CODE >133:D:\lab4pro\lab4pro.s
+48 main CODE >136:D:\lab4pro\lab4pro.s
+49 main CODE >137:D:\lab4pro\lab4pro.s
+4A main CODE >138:D:\lab4pro\lab4pro.s
+4B main CODE >141:D:\lab4pro\lab4pro.s
+4C main CODE >142:D:\lab4pro\lab4pro.s
+4D main CODE >143:D:\lab4pro\lab4pro.s
+4E main CODE >144:D:\lab4pro\lab4pro.s
+4F main CODE >145:D:\lab4pro\lab4pro.s
+50 main CODE >146:D:\lab4pro\lab4pro.s
+51 main CODE >147:D:\lab4pro\lab4pro.s
+52 main CODE >150:D:\lab4pro\lab4pro.s
+53 main CODE >151:D:\lab4pro\lab4pro.s
+54 main CODE >152:D:\lab4pro\lab4pro.s
+55 main CODE >153:D:\lab4pro\lab4pro.s
+56 main CODE >154:D:\lab4pro\lab4pro.s
+57 main CODE >156:D:\lab4pro\lab4pro.s
+58 main CODE >157:D:\lab4pro\lab4pro.s
+59 main CODE >158:D:\lab4pro\lab4pro.s
+5A main CODE >159:D:\lab4pro\lab4pro.s
+5B main CODE >160:D:\lab4pro\lab4pro.s
+5C main CODE >162:D:\lab4pro\lab4pro.s
+5D main CODE >163:D:\lab4pro\lab4pro.s
+5E main CODE >164:D:\lab4pro\lab4pro.s
+5F main CODE >165:D:\lab4pro\lab4pro.s
+60 main CODE >166:D:\lab4pro\lab4pro.s
+61 main CODE >168:D:\lab4pro\lab4pro.s
+62 main CODE >169:D:\lab4pro\lab4pro.s
+63 main CODE >170:D:\lab4pro\lab4pro.s
+64 main CODE >171:D:\lab4pro\lab4pro.s
+65 main CODE >172:D:\lab4pro\lab4pro.s
+66 main CODE >176:D:\lab4pro\lab4pro.s
+67 main CODE >177:D:\lab4pro\lab4pro.s
+68 main CODE >178:D:\lab4pro\lab4pro.s
+69 main CODE >180:D:\lab4pro\lab4pro.s
+6A main CODE >181:D:\lab4pro\lab4pro.s
+6B main CODE >182:D:\lab4pro\lab4pro.s
+6C main CODE >187:D:\lab4pro\lab4pro.s
+6D main CODE >188:D:\lab4pro\lab4pro.s
+6E main CODE >189:D:\lab4pro\lab4pro.s
+6F main CODE >191:D:\lab4pro\lab4pro.s
+70 main CODE >192:D:\lab4pro\lab4pro.s
+71 main CODE >194:D:\lab4pro\lab4pro.s
+72 main CODE >195:D:\lab4pro\lab4pro.s
+73 main CODE >196:D:\lab4pro\lab4pro.s
+74 main CODE >197:D:\lab4pro\lab4pro.s
+75 main CODE >198:D:\lab4pro\lab4pro.s
+76 main CODE >203:D:\lab4pro\lab4pro.s
+77 main CODE >204:D:\lab4pro\lab4pro.s
+78 main CODE >205:D:\lab4pro\lab4pro.s
+79 main CODE >207:D:\lab4pro\lab4pro.s
+7A main CODE >208:D:\lab4pro\lab4pro.s
+7B main CODE >209:D:\lab4pro\lab4pro.s
+7C main CODE >210:D:\lab4pro\lab4pro.s
+7D main CODE >213:D:\lab4pro\lab4pro.s
+8007 config CONFIG >16:D:\lab4pro\lab4pro.s
+8008 config CONFIG >17:D:\lab4pro\lab4pro.s
+8009 config CONFIG >18:D:\lab4pro\lab4pro.s
+800A config CONFIG >19:D:\lab4pro\lab4pro.s
+800B config CONFIG >20:D:\lab4pro\lab4pro.s
+0 reset_vec CODE >24:D:\lab4pro\lab4pro.s
+4 intentry CODE >39:D:\lab4pro\lab4pro.s
+5 intentry CODE >40:D:\lab4pro\lab4pro.s
+6 intentry CODE >42:D:\lab4pro\lab4pro.s
+7 intentry CODE >44:D:\lab4pro\lab4pro.s
+8 intentry CODE >47:D:\lab4pro\lab4pro.s
+9 intentry CODE >49:D:\lab4pro\lab4pro.s
+A intentry CODE >50:D:\lab4pro\lab4pro.s
+B intentry CODE >51:D:\lab4pro\lab4pro.s
+C intentry CODE >52:D:\lab4pro\lab4pro.s
+D intentry CODE >53:D:\lab4pro\lab4pro.s
+E intentry CODE >54:D:\lab4pro\lab4pro.s
+F intentry CODE >55:D:\lab4pro\lab4pro.s
+10 intentry CODE >56:D:\lab4pro\lab4pro.s
+11 intentry CODE >58:D:\lab4pro\lab4pro.s
+12 intentry CODE >59:D:\lab4pro\lab4pro.s
+13 intentry CODE >60:D:\lab4pro\lab4pro.s
+14 intentry CODE >61:D:\lab4pro\lab4pro.s
+15 intentry CODE >63:D:\lab4pro\lab4pro.s
+16 intentry CODE >64:D:\lab4pro\lab4pro.s
+17 intentry CODE >66:D:\lab4pro\lab4pro.s
+18 intentry CODE >67:D:\lab4pro\lab4pro.s
+19 intentry CODE >68:D:\lab4pro\lab4pro.s
+1A intentry CODE >69:D:\lab4pro\lab4pro.s
+1B intentry CODE >70:D:\lab4pro\lab4pro.s
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__Hspace_0 800C 0 ABS 0 - -
+__Hspace_1 71 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__Hudata_bank0 0 0 ABS 0 udata_bank0 -
+__Hudata_bank1 0 0 ABS 0 udata_bank1 -
+__Hudata_bank2 0 0 ABS 0 udata_bank2 -
+__Hudata_bank3 0 0 ABS 0 udata_bank3 -
+__Hudata_bank4 0 0 ABS 0 udata_bank4 -
+__Hudata_bank5 0 0 ABS 0 udata_bank5 -
+__Hudata_bank6 0 0 ABS 0 udata_bank6 -
+__L__absolute__ 0 0 ABS 0 __absolute__ -
+_main 38 0 CODE 0 main build/default/production/lab4pro.o
+__Hpowerup 0 0 CODE 0 powerup -
+__Hfunctab 0 0 ENTRY 0 functab -
+__Hpa_nodes0 0 0 ABS 0 pa_nodes0 -
+__Lpa_nodes0 0 0 ABS 0 pa_nodes0 -
+start_initialization 0 0 CODE 0 cinit build/default/production/lab4pro.o
+__Hcinit 0 0 CODE 0 cinit -
+__Hedata 0 0 ABS 0 edata -
+__Hidloc 0 0 ABS 0 idloc -
+__Hudata 0 0 ABS 0 udata -
+__Hconfig 0 0 ABS 0 config -
+__Lcinit 0 0 CODE 0 cinit -
+__Ledata 0 0 ABS 0 edata -
+__Lidloc 0 0 ABS 0 idloc -
+__Ludata 0 0 ABS 0 udata -
+__Hcode 0 0 ABS 0 code -
+__Hdata 0 0 ABS 0 data -
+__Hinit 0 0 ABS 0 init -
+__Hmain 0 0 ABS 0 main -
+__Lcode 0 0 ABS 0 code -
+__Ldata 0 0 ABS 0 data -
+__Linit 0 0 ABS 0 init -
+__Lmain 0 0 ABS 0 main -
+__S0 800C 0 ABS 0 - -
+__S1 71 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__Lintentry 8 0 CODE 0 intentry -
+reset_vec 0 0 CODE 0 reset_vec build/default/production/lab4pro.o
+__Lconfig 0 0 ABS 0 config -
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lend_init 0 0 ABS 0 end_init -
+__Hintentry 38 0 CODE 0 intentry -
+__Hreset_vec 6 0 CODE 0 reset_vec -
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__Ludata_bank0 0 0 ABS 0 udata_bank0 -
+__Ludata_bank1 0 0 ABS 0 udata_bank1 -
+__Ludata_bank2 0 0 ABS 0 udata_bank2 -
+__Ludata_bank3 0 0 ABS 0 udata_bank3 -
+__Ludata_bank4 0 0 ABS 0 udata_bank4 -
+__Ludata_bank5 0 0 ABS 0 udata_bank5 -
+__Ludata_bank6 0 0 ABS 0 udata_bank6 -
+__H__absolute__ 0 0 ABS 0 __absolute__ -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+__Lfunctab 0 0 ENTRY 0 functab -
+__HCommonVar 0 0 ABS 0 CommonVar -
+__Hend_init 0 0 ABS 0 end_init -
+__Hudata_shr 0 0 ABS 0 udata_shr -
+__LCommonVar 0 0 ABS 0 CommonVar -
+__Ludata_shr 0 0 ABS 0 udata_shr -
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+intentry 0 4 8 7A 2
+reset_vec 0 0 0 3 2
+CommonVar 1 70 70 1 1
+config 0 8007 1000E 5 2
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

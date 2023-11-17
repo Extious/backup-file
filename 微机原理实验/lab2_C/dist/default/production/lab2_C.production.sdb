@@ -1,0 +1,75 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F18854 ]
+[d frameptr 6 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"10 D:\lab2_C\lab2_C.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+"16
+[v _main main `(v  1 e 1 0 ]
+[s S62 . 1 `uc 1 INTEDG 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"364 C:/Users/zhaozhan/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18854.h
+[u S67 . 1 `S62 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES67  1 e 1 @11 ]
+[s S37 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"463
+[u S46 . 1 `S37 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES46  1 e 1 @13 ]
+"653
+[v _TRISB TRISB `VEuc  1 e 1 @18 ]
+"963
+[v _TMR0L TMR0L `VEuc  1 e 1 @28 ]
+"1101
+[v _TMR0H TMR0H `VEuc  1 e 1 @29 ]
+"1355
+[v _T0CON0 T0CON0 `VEuc  1 e 1 @30 ]
+"1420
+[v _T0CON1 T0CON1 `VEuc  1 e 1 @31 ]
+[s S22 . 1 `uc 1 INTF 1 0 :1:0 
+`uc 1 . 1 0 :3:1 
+`uc 1 IOCIF 1 0 :1:4 
+`uc 1 TMR0IF 1 0 :1:5 
+]
+"21013
+[u S27 . 1 `S22 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES27  1 e 1 @1804 ]
+[s S75 . 1 `uc 1 INTE 1 0 :1:0 
+`uc 1 . 1 0 :3:1 
+`uc 1 IOCIE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+"21435
+[u S80 . 1 `S75 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES80  1 e 1 @1814 ]
+"33310
+[v _ANSELB ANSELB `VEuc  1 e 1 @3907 ]
+"16 D:\lab2_C\lab2_C.c
+[v _main main `(v  1 e 1 0 ]
+{
+"28
+} 0
+"10
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"15
+} 0

@@ -1,0 +1,190 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F18854 ]
+[d frameptr 6 ]
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"43 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"70 D:\lab6_C.X\lab6_C.c
+[v _scan_LED scan_LED `(v  1 e 1 0 ]
+"84
+[v _div_num div_num `(v  1 e 1 0 ]
+"92
+[v _ISR ISR `II(v  1 e 1 0 ]
+"98
+[v _main main `(i  1 e 2 0 ]
+"351 C:/Users/zhaozhan/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18854.h
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+"384
+[v _PORTA PORTA `VEuc  1 e 1 @12 ]
+"508
+[v _PORTC PORTC `VEuc  1 e 1 @14 ]
+"591
+[v _TRISA TRISA `VEuc  1 e 1 @17 ]
+"653
+[v _TRISB TRISB `VEuc  1 e 1 @18 ]
+"715
+[v _TRISC TRISC `VEuc  1 e 1 @19 ]
+"777
+[v _LATA LATA `VEuc  1 e 1 @22 ]
+"901
+[v _LATC LATC `VEuc  1 e 1 @24 ]
+"1355
+[v _T0CON0 T0CON0 `VEuc  1 e 1 @30 ]
+"1420
+[v _T0CON1 T0CON1 `VEuc  1 e 1 @31 ]
+"1538
+[v _ADRESL ADRESL `VEuc  1 e 1 @140 ]
+"1558
+[v _ADRESH ADRESH `VEuc  1 e 1 @141 ]
+"1859
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @147 ]
+"2337
+[v _ADREF ADREF `VEuc  1 e 1 @154 ]
+"2570
+[v _ADPCH ADPCH `VEuc  1 e 1 @158 ]
+[s S24 . 1 `uc 1 INTF 1 0 :1:0 
+`uc 1 . 1 0 :3:1 
+`uc 1 IOCIF 1 0 :1:4 
+`uc 1 TMR0IF 1 0 :1:5 
+]
+"21013
+[u S29 . 1 `S24 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES29  1 e 1 @1804 ]
+"21422
+[v _PIE0 PIE0 `VEuc  1 e 1 @1814 ]
+"23915
+[v _FVRCON FVRCON `VEuc  1 e 1 @2316 ]
+"29474
+[v _INTPPS INTPPS `VEuc  1 e 1 @3728 ]
+"32690
+[v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
+"33310
+[v _ANSELB ANSELB `VEuc  1 e 1 @3907 ]
+"33372
+[v _WPUB WPUB `VEuc  1 e 1 @3908 ]
+"33930
+[v _ANSELC ANSELC `VEuc  1 e 1 @3918 ]
+"43 D:\lab6_C.X\lab6_C.c
+[v _SEGMENT SEGMENT `DC[11]uc  1 e 11 0 ]
+"56
+[v _segBuf segBuf `[4]uc  1 e 4 0 ]
+"64
+[v _ADCres ADCres `i  1 e 2 0 ]
+"65
+[v _voltage voltage `i  1 e 2 0 ]
+"67
+[v _idx idx `uc  1 e 1 0 ]
+"68
+[v _posCode posCode `uc  1 e 1 0 ]
+"98
+[v _main main `(i  1 e 2 0 ]
+{
+"132
+[v main@i i `i  1 a 2 47 ]
+"127
+[v main@v_low v_low `i  1 a 2 45 ]
+"126
+[v main@v_high v_high `i  1 a 2 43 ]
+"135
+} 0
+"84
+[v _div_num div_num `(v  1 e 1 0 ]
+{
+"89
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"5
+[v ___awmod@divisor divisor `i  1 p 2 0 ]
+[v ___awmod@dividend dividend `i  1 p 2 2 ]
+"34
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"10
+[v ___awdiv@quotient quotient `i  1 a 2 8 ]
+"11
+[v ___awdiv@sign sign `uc  1 a 1 7 ]
+[v ___awdiv@counter counter `uc  1 a 1 6 ]
+"5
+[v ___awdiv@divisor divisor `i  1 p 2 1 ]
+[v ___awdiv@dividend dividend `i  1 p 2 3 ]
+"41
+} 0
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\xxtofl.c
+[v ___xxtofl __xxtofl `(d  1 e 4 0 ]
+{
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+"13
+[v ___xxtofl@arg arg `ul  1 a 4 2 ]
+"12
+[v ___xxtofl@exp exp `uc  1 a 1 1 ]
+"10
+[v ___xxtofl@sign sign `uc  1 a 1 wreg ]
+[v ___xxtofl@val val `l  1 p 4 1 ]
+"15
+[v ___xxtofl@sign sign `uc  1 a 1 0 ]
+"44
+} 0
+"43 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\fltol.c
+[v ___fltol __fltol `(l  1 e 4 0 ]
+{
+"45
+[v ___fltol@exp1 exp1 `uc  1 a 1 10 ]
+[v ___fltol@sign1 sign1 `uc  1 a 1 9 ]
+"43
+[v ___fltol@f1 f1 `d  1 p 4 32 ]
+"70
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+{
+"21
+[v ___fldiv@grs grs `ul  1 a 4 26 ]
+"22
+[v ___fldiv@rem rem `ul  1 a 4 19 ]
+"20
+[v ___fldiv@new_exp new_exp `i  1 a 2 24 ]
+"19
+[v ___fldiv@aexp aexp `uc  1 a 1 31 ]
+"18
+[v ___fldiv@bexp bexp `uc  1 a 1 30 ]
+"16
+[v ___fldiv@sign sign `uc  1 a 1 23 ]
+"8
+[v ___fldiv@a a `d  1 p 4 6 ]
+[v ___fldiv@b b `d  1 p 4 10 ]
+"185
+} 0
+"92 D:\lab6_C.X\lab6_C.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"96
+} 0
+"70
+[v _scan_LED scan_LED `(v  1 e 1 0 ]
+{
+"82
+} 0

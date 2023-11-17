@@ -1,0 +1,182 @@
+
+
+Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
+                                                                                                           Tue Jul 11 10:10:05 2023
+
+
+     1                           	processor	16F18854
+     2                           	pagewidth 132
+     3                           	psect	udata_shr,global,class=COMMON,space=1,delta=1,noexec
+     4                           	psect	udata,global,class=RAM,space=1,delta=1,noexec
+     5                           	psect	udata_bank0,global,class=BANK0,space=1,delta=1,noexec
+     6                           	psect	udata_bank1,global,class=BANK1,space=1,delta=1,noexec
+     7                           	psect	udata_bank2,global,class=BANK2,space=1,delta=1,noexec
+     8                           	psect	udata_bank3,global,class=BANK3,space=1,delta=1,noexec
+     9                           	psect	udata_bank4,global,class=BANK4,space=1,delta=1,noexec
+    10                           	psect	udata_bank5,global,class=BANK5,space=1,delta=1,noexec
+    11                           	psect	udata_bank6,global,class=BANK6,space=1,delta=1,noexec
+    12                           	psect	code,global,class=CODE,delta=2
+    13                           	psect	data,global,class=STRCODE,delta=2,noexec
+    14                           	psect	edata,global,class=EEDATA,space=3,delta=2,noexec
+    15                           	psect	init,global,class=CODE,delta=2
+    16                           	psect	end_init,global,class=CODE,delta=2
+    17                           	psect	powerup,global,class=CODE,delta=2
+    18                           	psect	cinit,global,class=CODE,delta=2
+    19                           	psect	functab,global,class=ENTRY,delta=2
+    20                           	psect	idloc,global,class=IDLOC,delta=2,noexec
+    21                           	psect	eeprom_data,global,class=EEDATA,space=3,delta=2,noexec
+    22                           	psect	intentry,global,class=CODE,delta=2
+    23                           	psect	reset_vec,global,class=CODE,delta=2
+    24                           	psect	config,global,class=CONFIG,delta=2
+    25                           	psect	CommonVar,global,class=COMMON,space=1,delta=1
+    26                           	psect	main,global,class=CODE,delta=2
+    27                           	psect	pa_nodes0,global,class=CODE,delta=2
+    28     007F                     
+    29                           	psect	edata
+    30     0000                     stk_offset	set	0
+    31     0000                     auto_size	set	0
+    32                           
+    33                           ; stack_auto defines a symbol /name/_offset which equates to the
+    34                           ; stack offset of the auto object in question
+    35     0000                     
+    36                           ; stack_param defines a symbol /name/_offset which equates to the
+    37                           ; stack offset of the parameter object in question
+    38     0000                     
+    39                           ; alloc_stack adjusts the SP to allocate space for auto objects
+    40                           ; it also links in to the btemp symbol so that can be used
+    41     0000                     
+    42                           ; restore_stack adjusts the SP to remove all auto and parameter
+    43                           ; objects from the stack prior to returning from a function
+    44     0000                     
+    45                           	psect	cinit
+    46     0000                     start_initialization:
+    47                           
+    48                           	psect	intentry
+    49     0004  0009               	retfie	; PIC10/12/16
+    50                           
+    51                           	psect	reset_vec
+    52     0000                     reset_vec:
+    53     0000  3180  2805  3180   	ljmp	_main
+    54                           
+    55                           	psect	config
+    56     8007  DFEC               	dw	57324
+    57     8008  F7FF               	dw	63487
+    58     8009  FFBF               	dw	65471
+    59     800A  EFFE               	dw	61438
+    60     800B  FFFF               	dw	65535
+    61                           
+    62                           	psect	CommonVar
+    63     0070                     charcase:
+    64     0070                     	ds	1
+    65                           
+    66                           	psect	main
+    67     0005                     _main:
+    68     0005  0020               	banksel	18	;
+    69     0006  3000               	movlw	0	;
+    70     0007  0092               	movwf	18	;set PORTB output
+    71     0008  3000               	movlw	0	;
+    72     0009  0093               	movwf	19	;set PORTC 0~7 output
+    73     000A  3090               	movlw	144	;8b'1001 0000'
+    74     000B  009E               	movwf	30	;
+    75     000C  3040               	movlw	64	;8b'0100 0000'
+    76     000D  009F               	movwf	31	;
+    77     000E                     year:
+    78     000E  3002               	movlw	2	;
+    79     000F  2051               	call	TABLE	;
+    80     0010  008D               	movwf	13	;set output number
+    81     0011  30E0               	movlw	224	;
+    82     0012  008E               	movwf	14	;set segment 0 light
+    83     0013  2044               	call	delay5ms	;
+    84     0014  3000               	movlw	0	;
+    85     0015  2051               	call	TABLE	;
+    86     0016  008D               	movwf	13	;set output number
+    87     0017  30D0               	movlw	208	;
+    88     0018  008E               	movwf	14	;set segment 1 light
+    89     0019  2044               	call	delay5ms	;
+    90     001A  3002               	movlw	2	;
+    91     001B  2051               	call	TABLE	;
+    92     001C  008D               	movwf	13	;set output number
+    93     001D  30B0               	movlw	176	;
+    94     001E  008E               	movwf	14	;set segment 2 light
+    95     001F  2044               	call	delay5ms	;
+    96     0020  3003               	movlw	3	;
+    97     0021  2051               	call	TABLE	;
+    98     0022  008D               	movwf	13	;set output number
+    99     0023  3070               	movlw	112	;
+   100     0024  008E               	movwf	14	;set segment 3 light
+   101     0025  2044               	call	delay5ms	;
+   102     0026                     L1:
+   103     0026  3001               	movlw	1	;
+   104     0027  2051               	call	TABLE	;
+   105     0028  008D               	movwf	13	;set output number 1
+   106     0029  30E0               	movlw	224	;
+   107     002A  008E               	movwf	14	;set segment 0 light
+   108     002B  203F               	call	delay250ms	;
+   109     002C  3002               	movlw	2	;
+   110     002D  2051               	call	TABLE	;
+   111     002E  008D               	movwf	13	;set output number 2
+   112     002F  30D0               	movlw	208	;
+   113     0030  008E               	movwf	14	;set segment 1 light
+   114     0031  203F               	call	delay250ms	;
+   115     0032  3003               	movlw	3	;
+   116     0033  2051               	call	TABLE	;
+   117     0034  008D               	movwf	13	;set output number 3
+   118     0035  30B0               	movlw	176	;
+   119     0036  008E               	movwf	14	;setsegment 2 light
+   120     0037  203F               	call	delay250ms	;
+   121     0038  3004               	movlw	4	;
+   122     0039  2051               	call	TABLE	;
+   123     003A  008D               	movwf	13	;set output number 4
+   124     003B  3070               	movlw	112	;
+   125     003C  008E               	movwf	14	;set segment 3 light
+   126     003D  203F               	call	delay250ms	;
+   127     003E  2826               	goto	L1	;
+   128     003F                     delay250ms:
+   129     003F                     Loop1:
+   130     003F  1E9E               	btfss	30,5	;
+   131     0040  283F               	goto	Loop1	;
+   132     0041                     Loop2:
+   133     0041  1A9E               	btfsc	30,5	;
+   134     0042  2841               	goto	Loop2	;
+   135     0043  0008               	return
+   136     0044                     delay5ms:
+   137     0044  30FD               	movlw	253	;
+   138     0045  009D               	movwf	29	;
+   139     0046  3099               	movlw	153	;
+   140     0047  009C               	movwf	28	;
+   141     0048                     Loop3:
+   142     0048  1E9E               	btfss	30,5	;
+   143     0049  2848               	goto	Loop3	;
+   144     004A  30FD               	movlw	253	;
+   145     004B  009D               	movwf	29	;
+   146     004C  3099               	movlw	153	;
+   147     004D  009C               	movwf	28	;
+   148     004E                     Loop4:
+   149     004E  1A9E               	btfsc	30,5	;
+   150     004F  284E               	goto	Loop4	;
+   151     0050  0008               	return
+   152     0051                     TABLE:
+   153     0051  0782               	addwf	2,f	;add offset to pc to generate a computed goto
+   154     0052  343F               	retlw	63	;0
+   155     0053  3406               	retlw	6	;1
+   156     0054  345B               	retlw	91	;2
+   157     0055  344F               	retlw	79	;3
+   158     0056  3466               	retlw	102	;4
+   159     0057  346B               	retlw	107	;5
+   160     0058  347B               	retlw	123	;6
+   161     0059  3407               	retlw	7	;7
+   162     005A  347F               	retlw	127	;8
+   163     005B  346F               	retlw	111	;9
+
+
+Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
+Symbol Table                                                                                               Tue Jul 11 10:10:05 2023
+
+                              L1 0026                               PCL 0002                              year 000E  
+                           TABLE 0051                             TMR0H 001D                             TMR0L 001C  
+                           PORTB 000D                             PORTC 000E                             TRISB 0012  
+                           TRISC 0013                             Loop1 003F                             Loop2 0041  
+                           Loop3 0048                             Loop4 004E                             _main 0005  
+                          T0CON0 001E                            T0CON1 001F                          charcase 0070  
+                        delay5ms 0044              start_initialization 0000                        delay250ms 003F  
+                       reset_vec 0000  

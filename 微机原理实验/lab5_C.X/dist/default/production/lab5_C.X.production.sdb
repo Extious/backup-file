@@ -1,0 +1,144 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F18854 ]
+[d frameptr 6 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"21 D:\lab5_C.X\lab5_C.c
+[v _longpush longpush `(v  1 e 1 0 ]
+"28
+[v _doublepush doublepush `(v  1 e 1 0 ]
+"35
+[v _singlepush singlepush `(v  1 e 1 0 ]
+"42
+[v _ISR ISR `II(v  1 e 1 0 ]
+"142
+[v _main main `(v  1 e 1 0 ]
+[s S92 . 1 `uc 1 INTEDG 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"364 C:/Users/zhaozhan/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18854.h
+[u S97 . 1 `S92 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES97  1 e 1 @11 ]
+"384
+[v _PORTA PORTA `VEuc  1 e 1 @12 ]
+"446
+[v _PORTB PORTB `VEuc  1 e 1 @13 ]
+[s S39 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"463
+[u S48 . 1 `S39 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES48  1 e 1 @13 ]
+"508
+[v _PORTC PORTC `VEuc  1 e 1 @14 ]
+"591
+[v _TRISA TRISA `VEuc  1 e 1 @17 ]
+"653
+[v _TRISB TRISB `VEuc  1 e 1 @18 ]
+[s S60 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"670
+[u S69 . 1 `S60 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES69  1 e 1 @18 ]
+"715
+[v _TRISC TRISC `VEuc  1 e 1 @19 ]
+"777
+[v _LATA LATA `VEuc  1 e 1 @22 ]
+"901
+[v _LATC LATC `VEuc  1 e 1 @24 ]
+"1101
+[v _TMR0H TMR0H `VEuc  1 e 1 @29 ]
+"1355
+[v _T0CON0 T0CON0 `VEuc  1 e 1 @30 ]
+"1420
+[v _T0CON1 T0CON1 `VEuc  1 e 1 @31 ]
+[s S24 . 1 `uc 1 INTF 1 0 :1:0 
+`uc 1 . 1 0 :3:1 
+`uc 1 IOCIF 1 0 :1:4 
+`uc 1 TMR0IF 1 0 :1:5 
+]
+"21013
+[u S29 . 1 `S24 1 . 1 0 ]
+[v _PIR0bits PIR0bits `VES29  1 e 1 @1804 ]
+[s S105 . 1 `uc 1 INTE 1 0 :1:0 
+`uc 1 . 1 0 :3:1 
+`uc 1 IOCIE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+]
+"21435
+[u S110 . 1 `S105 1 . 1 0 ]
+[v _PIE0bits PIE0bits `VES110  1 e 1 @1814 ]
+"32690
+[v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
+"33310
+[v _ANSELB ANSELB `VEuc  1 e 1 @3907 ]
+"33372
+[v _WPUB WPUB `VEuc  1 e 1 @3908 ]
+"33930
+[v _ANSELC ANSELC `VEuc  1 e 1 @3918 ]
+"11 D:\lab5_C.X\lab5_C.c
+[v _pcnt pcnt `uc  1 e 1 0 ]
+"12
+[v _rcnt rcnt `uc  1 e 1 0 ]
+"13
+[v _count count `uc  1 e 1 0 ]
+"14
+[v _index index `uc  1 e 1 0 ]
+"15
+[v _segCode segCode `uc  1 e 1 0 ]
+"16
+[v _table_3 table_3 `DC[1]uc  1 e 1 0 ]
+"17
+[v _table_2 table_2 `DC[2]uc  1 e 2 0 ]
+"18
+[v _table_1 table_1 `DC[3]uc  1 e 3 0 ]
+"19
+[v _table_0 table_0 `DC[4]uc  1 e 4 0 ]
+"142
+[v _main main `(v  1 e 1 0 ]
+{
+"168
+} 0
+"42
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"139
+} 0
+"35
+[v _singlepush singlepush `(v  1 e 1 0 ]
+{
+"39
+} 0
+"21
+[v _longpush longpush `(v  1 e 1 0 ]
+{
+"27
+} 0
+"28
+[v _doublepush doublepush `(v  1 e 1 0 ]
+{
+"34
+} 0

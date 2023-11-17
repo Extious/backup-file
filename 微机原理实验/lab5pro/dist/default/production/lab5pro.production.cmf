@@ -1,0 +1,419 @@
+%CMF
+# %PSECTS Section
+# For each object file, details of its psects are enumerated here.
+# The begining of the section is indicated by %PSECTS.  The first
+# line indicates the name of the first object file, e.g.
+#    $foo.obj
+# Each line that follows describes a psect in that object file, until
+# the next object file.  The lines that describe a psect have the
+# format:
+#    <psect name> <class name> <space> <link address> <load addresses> <length> <delta> <reloc>
+# All addresses and the length are given in unqualified hexadecimal
+# in delta units.  Any other numeric values are decimal.
+%PSECTS
+$build/default/production/lab5pro.o
+main CODE 0 9B 9B 36 2 1
+intentry CODE 0 4 4 97 2 1
+reset_vec CODE 0 0 0 3 2 1
+CommonVar COMMON 1 70 70 1 1 1
+config CONFIG 0 8007 8007 5 2 1
+# %UNUSED Section
+# This section enumerates the unused ranges of each CLASS. Each entry
+# is described on a single line as follows:
+#    <class name> <range> <delta>
+# Addresses given in the range are in hexadecimal and units of delta.
+%UNUSED
+RAM 20-6F 1
+RAM A0-EF 1
+RAM 120-16F 1
+RAM 1A0-1EF 1
+RAM 220-26F 1
+RAM 2A0-2EF 1
+RAM 320-32F 1
+BANK0 20-6F 1
+BANK1 A0-EF 1
+BANK2 120-16F 1
+BANK3 1A0-1EF 1
+BANK4 220-26F 1
+BANK5 2A0-2EF 1
+BANK6 320-32F 1
+CONST 3-3 2
+CONST D1-FFF 2
+ENTRY 3-3 2
+ENTRY D1-FFF 2
+IDLOC 8000-8003 2
+SFR10 500-56F 1
+SFR11 580-5EF 1
+SFR12 600-66F 1
+SFR13 680-6EF 1
+SFR14 700-76F 1
+SFR15 780-7EF 1
+SFR16 800-86F 1
+SFR17 880-8EF 1
+SFR18 900-96F 1
+SFR19 980-9EF 1
+SFR20 A00-A6F 1
+SFR21 A80-AEF 1
+SFR22 B00-B6F 1
+SFR23 B80-BEF 1
+SFR24 C00-C6F 1
+SFR25 C80-CEF 1
+SFR26 D00-D6F 1
+SFR27 D80-DEF 1
+SFR28 E00-E6F 1
+SFR29 E80-EEF 1
+SFR30 F00-F6F 1
+SFR31 F80-FEF 1
+CODE 3-3 2
+CODE D1-FFF 2
+SFR0 6-7 1
+SFR4 200-21F 1
+SFR5 280-29F 1
+SFR6 300-31F 1
+SFR7 380-3EF 1
+SFR8 400-46F 1
+SFR9 480-4EF 1
+BIGRAM 2000-21EF 1
+COMMON 71-7F 1
+EEDATA F000-F0FF 2
+STRCODE 3-3 2
+STRCODE D1-FFF 2
+STRING 3-3 2
+STRING D1-FFF 2
+# %LINETAB Section
+# This section enumerates the file/line to address mappings.
+# The beginning of the section is indicated by %LINETAB.
+# The first line indicates the name of the first object file, e.g.
+#   $foo.obj
+# Each line that follows describes a single mapping until the next
+# object file.  Mappings have the following format:
+#    <address> <psect name> <class name> ><line number>:<file name>
+# The address is absolute and given given in unqualified hex 
+# in delta units of the psect. All mappings within an object file
+# are in ascending order of addresses.
+# All other numeric values are in decimal.
+%LINETAB
+$build/default/production/lab5pro.o
+9B main CODE >266:D:\lab5pro\lab5pro.s
+9C main CODE >267:D:\lab5pro\lab5pro.s
+9D main CODE >268:D:\lab5pro\lab5pro.s
+9E main CODE >269:D:\lab5pro\lab5pro.s
+9F main CODE >270:D:\lab5pro\lab5pro.s
+A0 main CODE >271:D:\lab5pro\lab5pro.s
+A1 main CODE >272:D:\lab5pro\lab5pro.s
+A2 main CODE >273:D:\lab5pro\lab5pro.s
+A3 main CODE >274:D:\lab5pro\lab5pro.s
+A4 main CODE >277:D:\lab5pro\lab5pro.s
+A5 main CODE >278:D:\lab5pro\lab5pro.s
+A6 main CODE >279:D:\lab5pro\lab5pro.s
+A7 main CODE >280:D:\lab5pro\lab5pro.s
+A8 main CODE >281:D:\lab5pro\lab5pro.s
+A9 main CODE >282:D:\lab5pro\lab5pro.s
+AA main CODE >283:D:\lab5pro\lab5pro.s
+AB main CODE >284:D:\lab5pro\lab5pro.s
+AC main CODE >285:D:\lab5pro\lab5pro.s
+AD main CODE >288:D:\lab5pro\lab5pro.s
+AE main CODE >289:D:\lab5pro\lab5pro.s
+AF main CODE >290:D:\lab5pro\lab5pro.s
+B0 main CODE >291:D:\lab5pro\lab5pro.s
+B1 main CODE >292:D:\lab5pro\lab5pro.s
+B2 main CODE >293:D:\lab5pro\lab5pro.s
+B3 main CODE >294:D:\lab5pro\lab5pro.s
+B4 main CODE >295:D:\lab5pro\lab5pro.s
+B5 main CODE >296:D:\lab5pro\lab5pro.s
+B6 main CODE >297:D:\lab5pro\lab5pro.s
+B7 main CODE >298:D:\lab5pro\lab5pro.s
+B8 main CODE >299:D:\lab5pro\lab5pro.s
+B9 main CODE >302:D:\lab5pro\lab5pro.s
+BA main CODE >303:D:\lab5pro\lab5pro.s
+BB main CODE >304:D:\lab5pro\lab5pro.s
+BC main CODE >305:D:\lab5pro\lab5pro.s
+BD main CODE >306:D:\lab5pro\lab5pro.s
+BE main CODE >307:D:\lab5pro\lab5pro.s
+BF main CODE >308:D:\lab5pro\lab5pro.s
+C0 main CODE >309:D:\lab5pro\lab5pro.s
+C1 main CODE >310:D:\lab5pro\lab5pro.s
+C2 main CODE >311:D:\lab5pro\lab5pro.s
+C3 main CODE >312:D:\lab5pro\lab5pro.s
+C4 main CODE >315:D:\lab5pro\lab5pro.s
+C5 main CODE >316:D:\lab5pro\lab5pro.s
+C6 main CODE >318:D:\lab5pro\lab5pro.s
+C7 main CODE >319:D:\lab5pro\lab5pro.s
+C8 main CODE >320:D:\lab5pro\lab5pro.s
+C9 main CODE >322:D:\lab5pro\lab5pro.s
+CA main CODE >323:D:\lab5pro\lab5pro.s
+CB main CODE >325:D:\lab5pro\lab5pro.s
+CC main CODE >326:D:\lab5pro\lab5pro.s
+CD main CODE >327:D:\lab5pro\lab5pro.s
+CE main CODE >328:D:\lab5pro\lab5pro.s
+CF main CODE >332:D:\lab5pro\lab5pro.s
+D0 main CODE >333:D:\lab5pro\lab5pro.s
+8007 config CONFIG >16:D:\lab5pro\lab5pro.s
+8008 config CONFIG >17:D:\lab5pro\lab5pro.s
+8009 config CONFIG >18:D:\lab5pro\lab5pro.s
+800A config CONFIG >19:D:\lab5pro\lab5pro.s
+800B config CONFIG >20:D:\lab5pro\lab5pro.s
+0 reset_vec CODE >24:D:\lab5pro\lab5pro.s
+4 intentry CODE >50:D:\lab5pro\lab5pro.s
+5 intentry CODE >43:D:\lab5pro\lab5pro.s
+6 intentry CODE >46:D:\lab5pro\lab5pro.s
+7 intentry CODE >47:D:\lab5pro\lab5pro.s
+8 intentry CODE >49:D:\lab5pro\lab5pro.s
+9 intentry CODE >51:D:\lab5pro\lab5pro.s
+A intentry CODE >52:D:\lab5pro\lab5pro.s
+B intentry CODE >54:D:\lab5pro\lab5pro.s
+C intentry CODE >56:D:\lab5pro\lab5pro.s
+D intentry CODE >58:D:\lab5pro\lab5pro.s
+E intentry CODE >59:D:\lab5pro\lab5pro.s
+F intentry CODE >60:D:\lab5pro\lab5pro.s
+10 intentry CODE >62:D:\lab5pro\lab5pro.s
+11 intentry CODE >63:D:\lab5pro\lab5pro.s
+12 intentry CODE >64:D:\lab5pro\lab5pro.s
+13 intentry CODE >65:D:\lab5pro\lab5pro.s
+14 intentry CODE >66:D:\lab5pro\lab5pro.s
+15 intentry CODE >67:D:\lab5pro\lab5pro.s
+16 intentry CODE >68:D:\lab5pro\lab5pro.s
+17 intentry CODE >69:D:\lab5pro\lab5pro.s
+18 intentry CODE >71:D:\lab5pro\lab5pro.s
+19 intentry CODE >72:D:\lab5pro\lab5pro.s
+1A intentry CODE >73:D:\lab5pro\lab5pro.s
+1B intentry CODE >74:D:\lab5pro\lab5pro.s
+1C intentry CODE >76:D:\lab5pro\lab5pro.s
+1D intentry CODE >77:D:\lab5pro\lab5pro.s
+1E intentry CODE >78:D:\lab5pro\lab5pro.s
+1F intentry CODE >80:D:\lab5pro\lab5pro.s
+20 intentry CODE >81:D:\lab5pro\lab5pro.s
+21 intentry CODE >82:D:\lab5pro\lab5pro.s
+22 intentry CODE >83:D:\lab5pro\lab5pro.s
+23 intentry CODE >84:D:\lab5pro\lab5pro.s
+24 intentry CODE >85:D:\lab5pro\lab5pro.s
+25 intentry CODE >87:D:\lab5pro\lab5pro.s
+26 intentry CODE >88:D:\lab5pro\lab5pro.s
+27 intentry CODE >89:D:\lab5pro\lab5pro.s
+28 intentry CODE >90:D:\lab5pro\lab5pro.s
+29 intentry CODE >92:D:\lab5pro\lab5pro.s
+2A intentry CODE >93:D:\lab5pro\lab5pro.s
+2B intentry CODE >94:D:\lab5pro\lab5pro.s
+2C intentry CODE >96:D:\lab5pro\lab5pro.s
+2D intentry CODE >97:D:\lab5pro\lab5pro.s
+2E intentry CODE >98:D:\lab5pro\lab5pro.s
+2F intentry CODE >99:D:\lab5pro\lab5pro.s
+30 intentry CODE >101:D:\lab5pro\lab5pro.s
+31 intentry CODE >102:D:\lab5pro\lab5pro.s
+32 intentry CODE >103:D:\lab5pro\lab5pro.s
+33 intentry CODE >104:D:\lab5pro\lab5pro.s
+34 intentry CODE >106:D:\lab5pro\lab5pro.s
+35 intentry CODE >107:D:\lab5pro\lab5pro.s
+36 intentry CODE >108:D:\lab5pro\lab5pro.s
+37 intentry CODE >110:D:\lab5pro\lab5pro.s
+38 intentry CODE >111:D:\lab5pro\lab5pro.s
+39 intentry CODE >115:D:\lab5pro\lab5pro.s
+3A intentry CODE >116:D:\lab5pro\lab5pro.s
+3B intentry CODE >117:D:\lab5pro\lab5pro.s
+3C intentry CODE >118:D:\lab5pro\lab5pro.s
+3D intentry CODE >123:D:\lab5pro\lab5pro.s
+3E intentry CODE >124:D:\lab5pro\lab5pro.s
+3F intentry CODE >125:D:\lab5pro\lab5pro.s
+40 intentry CODE >127:D:\lab5pro\lab5pro.s
+41 intentry CODE >133:D:\lab5pro\lab5pro.s
+42 intentry CODE >131:D:\lab5pro\lab5pro.s
+43 intentry CODE >134:D:\lab5pro\lab5pro.s
+44 intentry CODE >135:D:\lab5pro\lab5pro.s
+45 intentry CODE >136:D:\lab5pro\lab5pro.s
+46 intentry CODE >137:D:\lab5pro\lab5pro.s
+47 intentry CODE >138:D:\lab5pro\lab5pro.s
+48 intentry CODE >139:D:\lab5pro\lab5pro.s
+49 intentry CODE >140:D:\lab5pro\lab5pro.s
+4A intentry CODE >141:D:\lab5pro\lab5pro.s
+4B intentry CODE >146:D:\lab5pro\lab5pro.s
+4C intentry CODE >145:D:\lab5pro\lab5pro.s
+4D intentry CODE >147:D:\lab5pro\lab5pro.s
+4E intentry CODE >148:D:\lab5pro\lab5pro.s
+4F intentry CODE >149:D:\lab5pro\lab5pro.s
+50 intentry CODE >152:D:\lab5pro\lab5pro.s
+51 intentry CODE >153:D:\lab5pro\lab5pro.s
+52 intentry CODE >154:D:\lab5pro\lab5pro.s
+53 intentry CODE >155:D:\lab5pro\lab5pro.s
+54 intentry CODE >156:D:\lab5pro\lab5pro.s
+55 intentry CODE >157:D:\lab5pro\lab5pro.s
+56 intentry CODE >158:D:\lab5pro\lab5pro.s
+57 intentry CODE >159:D:\lab5pro\lab5pro.s
+58 intentry CODE >160:D:\lab5pro\lab5pro.s
+59 intentry CODE >163:D:\lab5pro\lab5pro.s
+5A intentry CODE >164:D:\lab5pro\lab5pro.s
+5B intentry CODE >165:D:\lab5pro\lab5pro.s
+5C intentry CODE >166:D:\lab5pro\lab5pro.s
+5D intentry CODE >167:D:\lab5pro\lab5pro.s
+5E intentry CODE >172:D:\lab5pro\lab5pro.s
+5F intentry CODE >173:D:\lab5pro\lab5pro.s
+60 intentry CODE >174:D:\lab5pro\lab5pro.s
+61 intentry CODE >177:D:\lab5pro\lab5pro.s
+62 intentry CODE >176:D:\lab5pro\lab5pro.s
+63 intentry CODE >178:D:\lab5pro\lab5pro.s
+64 intentry CODE >179:D:\lab5pro\lab5pro.s
+65 intentry CODE >183:D:\lab5pro\lab5pro.s
+66 intentry CODE >184:D:\lab5pro\lab5pro.s
+67 intentry CODE >185:D:\lab5pro\lab5pro.s
+68 intentry CODE >186:D:\lab5pro\lab5pro.s
+69 intentry CODE >187:D:\lab5pro\lab5pro.s
+6A intentry CODE >190:D:\lab5pro\lab5pro.s
+6B intentry CODE >189:D:\lab5pro\lab5pro.s
+6C intentry CODE >191:D:\lab5pro\lab5pro.s
+6D intentry CODE >192:D:\lab5pro\lab5pro.s
+6E intentry CODE >196:D:\lab5pro\lab5pro.s
+6F intentry CODE >197:D:\lab5pro\lab5pro.s
+70 intentry CODE >198:D:\lab5pro\lab5pro.s
+71 intentry CODE >199:D:\lab5pro\lab5pro.s
+72 intentry CODE >200:D:\lab5pro\lab5pro.s
+73 intentry CODE >201:D:\lab5pro\lab5pro.s
+74 intentry CODE >202:D:\lab5pro\lab5pro.s
+75 intentry CODE >205:D:\lab5pro\lab5pro.s
+76 intentry CODE >204:D:\lab5pro\lab5pro.s
+77 intentry CODE >206:D:\lab5pro\lab5pro.s
+78 intentry CODE >207:D:\lab5pro\lab5pro.s
+79 intentry CODE >216:D:\lab5pro\lab5pro.s
+7A intentry CODE >217:D:\lab5pro\lab5pro.s
+7B intentry CODE >218:D:\lab5pro\lab5pro.s
+7C intentry CODE >219:D:\lab5pro\lab5pro.s
+7D intentry CODE >220:D:\lab5pro\lab5pro.s
+7E intentry CODE >222:D:\lab5pro\lab5pro.s
+7F intentry CODE >223:D:\lab5pro\lab5pro.s
+80 intentry CODE >224:D:\lab5pro\lab5pro.s
+81 intentry CODE >225:D:\lab5pro\lab5pro.s
+82 intentry CODE >226:D:\lab5pro\lab5pro.s
+83 intentry CODE >228:D:\lab5pro\lab5pro.s
+84 intentry CODE >229:D:\lab5pro\lab5pro.s
+85 intentry CODE >230:D:\lab5pro\lab5pro.s
+86 intentry CODE >231:D:\lab5pro\lab5pro.s
+87 intentry CODE >232:D:\lab5pro\lab5pro.s
+88 intentry CODE >234:D:\lab5pro\lab5pro.s
+89 intentry CODE >235:D:\lab5pro\lab5pro.s
+8A intentry CODE >236:D:\lab5pro\lab5pro.s
+8B intentry CODE >237:D:\lab5pro\lab5pro.s
+8C intentry CODE >238:D:\lab5pro\lab5pro.s
+8D intentry CODE >241:D:\lab5pro\lab5pro.s
+8E intentry CODE >242:D:\lab5pro\lab5pro.s
+8F intentry CODE >244:D:\lab5pro\lab5pro.s
+90 intentry CODE >245:D:\lab5pro\lab5pro.s
+91 intentry CODE >246:D:\lab5pro\lab5pro.s
+92 intentry CODE >248:D:\lab5pro\lab5pro.s
+93 intentry CODE >249:D:\lab5pro\lab5pro.s
+94 intentry CODE >250:D:\lab5pro\lab5pro.s
+95 intentry CODE >251:D:\lab5pro\lab5pro.s
+96 intentry CODE >253:D:\lab5pro\lab5pro.s
+97 intentry CODE >254:D:\lab5pro\lab5pro.s
+98 intentry CODE >255:D:\lab5pro\lab5pro.s
+99 intentry CODE >256:D:\lab5pro\lab5pro.s
+9A intentry CODE >257:D:\lab5pro\lab5pro.s
+# %SYMTAB Section
+# An enumeration of all symbols in the program.
+# The beginning of the section is indicated by %SYMTAB.
+# Each line describes a single symbol as follows:
+#    <label> <value> [-]<load-adj> <class> <space> <psect> <file-name>
+# The value and load-adj are both in unqualified hexadecimal.
+# All other numeric values are in decimal.  The load-adj is the
+# quantity one needs to add to the symbol value in order to obtain the load
+# address of the symbol.  This value may be signed. If the symbol
+# was defined in a psect then <psect> will be "-". File-name
+# is the name of the object file in which the symbol was defined.
+%SYMTAB
+__Hspace_0 800C 0 ABS 0 - -
+__Hspace_1 71 0 ABS 0 - -
+__Hspace_3 0 0 ABS 0 - -
+__Heeprom_data 0 0 EEDATA 3 eeprom_data -
+__Hudata_bank0 0 0 ABS 0 udata_bank0 -
+__Hudata_bank1 0 0 ABS 0 udata_bank1 -
+__Hudata_bank2 0 0 ABS 0 udata_bank2 -
+__Hudata_bank3 0 0 ABS 0 udata_bank3 -
+__Hudata_bank4 0 0 ABS 0 udata_bank4 -
+__Hudata_bank5 0 0 ABS 0 udata_bank5 -
+__Hudata_bank6 0 0 ABS 0 udata_bank6 -
+__L__absolute__ 0 0 ABS 0 __absolute__ -
+_main 136 0 CODE 0 main build/default/production/lab5pro.o
+__Hpowerup 0 0 CODE 0 powerup -
+__Hfunctab 0 0 ENTRY 0 functab -
+__Hpa_nodes0 0 0 ABS 0 pa_nodes0 -
+__Lpa_nodes0 0 0 ABS 0 pa_nodes0 -
+start_initialization 0 0 CODE 0 cinit build/default/production/lab5pro.o
+__Hcinit 0 0 CODE 0 cinit -
+__Hedata 0 0 ABS 0 edata -
+__Hidloc 0 0 ABS 0 idloc -
+__Hudata 0 0 ABS 0 udata -
+__Hconfig 0 0 ABS 0 config -
+__Lcinit 0 0 CODE 0 cinit -
+__Ledata 0 0 ABS 0 edata -
+__Lidloc 0 0 ABS 0 idloc -
+__Ludata 0 0 ABS 0 udata -
+__Hcode 0 0 ABS 0 code -
+__Hdata 0 0 ABS 0 data -
+__Hinit 0 0 ABS 0 init -
+__Hmain 0 0 ABS 0 main -
+__Lcode 0 0 ABS 0 code -
+__Ldata 0 0 ABS 0 data -
+__Linit 0 0 ABS 0 init -
+__Lmain 0 0 ABS 0 main -
+__S0 800C 0 ABS 0 - -
+__S1 71 0 ABS 0 - -
+__S3 0 0 ABS 0 - -
+__Lintentry 8 0 CODE 0 intentry -
+reset_vec 0 0 CODE 0 reset_vec build/default/production/lab5pro.o
+__Lconfig 0 0 ABS 0 config -
+__Lspace_0 0 0 ABS 0 - -
+__Lspace_1 0 0 ABS 0 - -
+__Lspace_3 0 0 ABS 0 - -
+__Lend_init 0 0 ABS 0 end_init -
+__Hintentry 136 0 CODE 0 intentry -
+__Hreset_vec 6 0 CODE 0 reset_vec -
+__Lpowerup 0 0 CODE 0 powerup -
+__Leeprom_data 0 0 EEDATA 3 eeprom_data -
+__Ludata_bank0 0 0 ABS 0 udata_bank0 -
+__Ludata_bank1 0 0 ABS 0 udata_bank1 -
+__Ludata_bank2 0 0 ABS 0 udata_bank2 -
+__Ludata_bank3 0 0 ABS 0 udata_bank3 -
+__Ludata_bank4 0 0 ABS 0 udata_bank4 -
+__Ludata_bank5 0 0 ABS 0 udata_bank5 -
+__Ludata_bank6 0 0 ABS 0 udata_bank6 -
+__H__absolute__ 0 0 ABS 0 __absolute__ -
+__Lreset_vec 0 0 CODE 0 reset_vec -
+__Lfunctab 0 0 ENTRY 0 functab -
+__HCommonVar 0 0 ABS 0 CommonVar -
+__Hend_init 0 0 ABS 0 end_init -
+__Hudata_shr 0 0 ABS 0 udata_shr -
+__LCommonVar 0 0 ABS 0 CommonVar -
+__Ludata_shr 0 0 ABS 0 udata_shr -
+# %SPLITSTAB Section
+# This section enumerates all the psect splits performed by the assembler.
+# The beginning of the section is indicated by %SPLITSTAB.
+# Each line is a record a particular split, where the parent psect is on
+# the left and the child on the right.  Note that a child psect is always
+# split form the top of the parent psect. All splits from a given parent
+# are listed in the order in which they occurred.
+%SPLITSTAB
+# %DABS Section
+# This section contains a table of all usuage of the assember
+# directive DABS in the program. Each line has the following format:
+#   <name> <space> <address> <size>
+# If the DABS was originally labelled then that shall be <name>,
+# otherwise name will be "-".  The <space> number is in decimal.
+# <address> and <size> are in byte units as unqaulified hexadecimal
+%DABS
+# %SEGMENTS Section
+# This sections enumerates the segments of the program.  Each segment
+# is described on a single line as follows:
+#    <name> <space> <link address> <file address> <size> <delta>
+# Addresses and size are in unqualified hexadecimal.  The link address
+# and size are in units of delta. The file address is in units of bytes.
+# All other numeric quantities are in decimal.
+%SEGMENTS
+intentry 0 4 8 CD 2
+reset_vec 0 0 0 3 2
+CommonVar 1 70 70 1 1
+config 0 8007 1000E 5 2
+# %NOTES Section
+# This section contains data of all the note-psects.  The beginning of the section
+# is indicated by %NOTES. The first line indicates the name and decimal
+# byte-length of the first note-psect, e.g.
+#   $codecov_info_hdr 16
+# Each line that follows contains the byte-data of the psect in hexadecimal as a
+# space-separated list. These lines are limited to 16 bytes of data.
+%NOTES

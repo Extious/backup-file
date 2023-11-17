@@ -1,0 +1,145 @@
+
+
+Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
+                                                                                                           Mon Jul 10 20:55:35 2023
+
+
+     1                           	processor	16F18854
+     2                           	pagewidth 132
+     3                           	psect	udata_shr,global,class=COMMON,space=1,delta=1,noexec
+     4                           	psect	udata,global,class=RAM,space=1,delta=1,noexec
+     5                           	psect	udata_bank0,global,class=BANK0,space=1,delta=1,noexec
+     6                           	psect	udata_bank1,global,class=BANK1,space=1,delta=1,noexec
+     7                           	psect	udata_bank2,global,class=BANK2,space=1,delta=1,noexec
+     8                           	psect	udata_bank3,global,class=BANK3,space=1,delta=1,noexec
+     9                           	psect	udata_bank4,global,class=BANK4,space=1,delta=1,noexec
+    10                           	psect	udata_bank5,global,class=BANK5,space=1,delta=1,noexec
+    11                           	psect	udata_bank6,global,class=BANK6,space=1,delta=1,noexec
+    12                           	psect	code,global,class=CODE,delta=2
+    13                           	psect	data,global,class=STRCODE,delta=2,noexec
+    14                           	psect	edata,global,class=EEDATA,space=3,delta=2,noexec
+    15                           	psect	init,global,class=CODE,delta=2
+    16                           	psect	end_init,global,class=CODE,delta=2
+    17                           	psect	powerup,global,class=CODE,delta=2
+    18                           	psect	cinit,global,class=CODE,delta=2
+    19                           	psect	functab,global,class=ENTRY,delta=2
+    20                           	psect	idloc,global,class=IDLOC,delta=2,noexec
+    21                           	psect	eeprom_data,global,class=EEDATA,space=3,delta=2,noexec
+    22                           	psect	intentry,global,class=CODE,delta=2
+    23                           	psect	reset_vec,global,class=CODE,delta=2
+    24                           	psect	config,global,class=CONFIG,delta=2
+    25                           	psect	CommonVar,global,class=COMMON,space=1,delta=1
+    26                           	psect	main,global,class=CODE,delta=2
+    27                           	psect	pa_nodes0,global,class=CODE,delta=2
+    28     007F                     
+    29                           	psect	edata
+    30     0000                     stk_offset	set	0
+    31     0000                     auto_size	set	0
+    32                           
+    33                           ; stack_auto defines a symbol /name/_offset which equates to the
+    34                           ; stack offset of the auto object in question
+    35     0000                     
+    36                           ; stack_param defines a symbol /name/_offset which equates to the
+    37                           ; stack offset of the parameter object in question
+    38     0000                     
+    39                           ; alloc_stack adjusts the SP to allocate space for auto objects
+    40                           ; it also links in to the btemp symbol so that can be used
+    41     0000                     
+    42                           ; restore_stack adjusts the SP to remove all auto and parameter
+    43                           ; objects from the stack prior to returning from a function
+    44     0000                     
+    45                           	psect	cinit
+    46     0000                     start_initialization:
+    47                           
+    48                           	psect	intentry
+    49     0004  30C3               	movlw	195
+    50     00F1                     
+    51                           ; Interrupt service routine
+    52                           ; clear overflow flag
+    53                           ;banksel PIR0
+    54                           ;btfss PIR0, 5
+    55                           ;retfie
+    56     0005  002E               	banksel	1804
+    57     0006  128C               	bcf	1804,5
+    58                           
+    59                           ; set TIMER0
+    60     0007  0020               	banksel	29
+    61     0008  009D               	movwf	29
+    62     0009  3074               	movlw	116
+    63     000A  0020               	banksel	28
+    64     000B  009C               	movwf	28
+    65     000C  3001               	movlw	1
+    66                           
+    67                           ; reverse output
+    68     000D  0020               	banksel	12
+    69     000E  068C               	xorwf	12,f
+    70     000F  0009               	retfie	; PIC10/12/16
+    71                           
+    72                           	psect	reset_vec
+    73     0000                     reset_vec:
+    74     0000  3180  2810  3180   	ljmp	_main
+    75                           
+    76                           	psect	config
+    77     8007  DFEC               	dw	57324
+    78     8008  F7FF               	dw	63487
+    79     8009  FFBF               	dw	65471
+    80     800A  EFFE               	dw	61438
+    81     800B  FFFF               	dw	65535
+    82                           
+    83                           	psect	CommonVar
+    84     0070                     charcase:
+    85     0070                     	ds	1
+    86                           
+    87                           	psect	main
+    88     0010                     _main:
+    89                           
+    90                           ;TODO
+    91                           ;PORTA config
+    92     0010  0020               	banksel	12
+    93     0011  018C               	clrf	12
+    94     0012  0020               	banksel	22
+    95     0013  0196               	clrf	22
+    96     0014  003E               	banksel	3896
+    97     0015  01B8               	clrf	3896
+    98     0016  0020               	banksel	17
+    99     0017  3000               	movlw	0
+   100     0018  0091               	movwf	17
+   101                           
+   102                           ;TIMER0 config
+   103     0019  0020               	banksel	30
+   104     001A  3090               	movlw	144
+   105     001B  009E               	movwf	30
+   106     001C  0020               	banksel	31
+   107     001D  3090               	movlw	144
+   108     001E  009F               	movwf	31
+   109     001F  002E               	banksel	1804
+   110     0020  128C               	bcf	1804,5
+   111                           
+   112                           ; INTERRUPT config
+   113     0021  002E               	banksel	1804
+   114     0022  128C               	bcf	1804,5
+   115                           
+   116                           ; ((INTCON) and 07Fh), 7, PIE enable
+   117     0023  0020               	banksel	11
+   118     0024  178B               	bsf	11,7
+   119     0025  170B               	bsf	11,6
+   120                           
+   121                           ; ((PIE0) and 07Fh), 5 enable
+   122     0026  002E               	banksel	1814
+   123     0027  1696               	bsf	1814,5
+   124     0028                     loop:	
+   125                           ; Main loop is not needed.
+   126                           
+   127     0028  0000               	nop
+   128     0029  2828               	goto	loop
+
+
+Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
+Symbol Table                                                                                               Mon Jul 10 20:55:35 2023
+
+                            LATA 0016                              PIE0 0716                              PIR0 070C  
+                            loop 0028                             TMR0H 001D                             TMR0L 001C  
+                           PORTA 000C                             TRISA 0011                             _main 0010  
+                          ANSELA 0F38                            T0CON0 001E                            T0CON1 001F  
+                          INTCON 000B                          charcase 0070              start_initialization 0000  
+                       reset_vec 0000  

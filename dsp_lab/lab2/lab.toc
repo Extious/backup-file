@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}实验目的}{3}{}%
+\contentsline {section}{\numberline {2}实验内容}{3}{}%
+\contentsline {section}{\numberline {3}实验过程与结果分析}{3}{}%
+\contentsline {subsection}{\numberline {3.1}理想带阻滤波器}{3}{}%
+\contentsline {paragraph}{第一次滤波}{4}{}%
+\contentsline {paragraph}{第二、三次滤波}{5}{}%
+\contentsline {paragraph}{第四次滤波}{5}{}%
+\contentsline {subsection}{\numberline {3.2}数字巴特沃斯带阻、高通滤波器}{8}{}%
+\contentsline {section}{\numberline {4}实验小结}{10}{}%

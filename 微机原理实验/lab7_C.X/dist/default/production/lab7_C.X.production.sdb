@@ -1,0 +1,208 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16LF18854 ]
+[d frameptr 6 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"64 D:\lab7_C.X\lab7_C.c
+[v _longpush longpush `(v  1 e 1 0 ]
+"71
+[v _doublepush doublepush `(v  1 e 1 0 ]
+"78
+[v _singlepush singlepush `(v  1 e 1 0 ]
+"83
+[v _check_btn check_btn `(v  1 e 1 0 ]
+"179
+[v _ISR ISR `II(v  1 e 1 0 ]
+"192
+[v _main main `(v  1 e 1 0 ]
+"219
+[v _initSerial initSerial `(v  1 e 1 0 ]
+"241
+[v _initTMR0 initTMR0 `(v  1 e 1 0 ]
+"247
+[v _initInterrupt initInterrupt `(v  1 e 1 0 ]
+"446 C:/Users/zhaozhan/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16lf18854.h
+[v _PORTB PORTB `VEuc  1 e 1 @13 ]
+[s S25 . 1 `uc 1 RB0 1 0 :1:0 
+`uc 1 RB1 1 0 :1:1 
+`uc 1 RB2 1 0 :1:2 
+`uc 1 RB3 1 0 :1:3 
+`uc 1 RB4 1 0 :1:4 
+`uc 1 RB5 1 0 :1:5 
+`uc 1 RB6 1 0 :1:6 
+`uc 1 RB7 1 0 :1:7 
+]
+"463
+[u S34 . 1 `S25 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES34  1 e 1 @13 ]
+"653
+[v _TRISB TRISB `VEuc  1 e 1 @18 ]
+[s S46 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"670
+[u S55 . 1 `S46 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES55  1 e 1 @18 ]
+"1101
+[v _TMR0H TMR0H `VEuc  1 e 1 @29 ]
+"1355
+[v _T0CON0 T0CON0 `VEuc  1 e 1 @30 ]
+"1420
+[v _T0CON1 T0CON1 `VEuc  1 e 1 @31 ]
+"2378
+[v _ADCAP ADCAP `VEuc  1 e 1 @155 ]
+"2430
+[v _ADPRE ADPRE `VEuc  1 e 1 @156 ]
+"2500
+[v _ADACQ ADACQ `VEuc  1 e 1 @157 ]
+"3503
+[v _RC1REG RC1REG `VEuc  1 e 1 @281 ]
+"3557
+[v _TX1REG TX1REG `VEuc  1 e 1 @282 ]
+"3566
+[v _TXREG TXREG `VEuc  1 e 1 @282 ]
+"3623
+[v _SPBRG SPBRG `VEuc  1 e 1 @283 ]
+"3631
+[v _SPBRGL SPBRGL `VEuc  1 e 1 @283 ]
+"3693
+[v _SPBRGH SPBRGH `VEuc  1 e 1 @284 ]
+[s S118 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"3948
+[u S127 . 1 `S118 1 . 1 0 ]
+[v _TX1STAbits TX1STAbits `VES127  1 e 1 @286 ]
+"31377
+[v _RXPPS RXPPS `VEuc  1 e 1 @3787 ]
+"32181
+[v _RB6PPS RB6PPS `VEuc  1 e 1 @3870 ]
+"33301
+[v _ANSELB ANSELB `VEuc  1 e 1 @3907 ]
+[s S92 . 1 `uc 1 ANSB0 1 0 :1:0 
+`uc 1 ANSB1 1 0 :1:1 
+`uc 1 ANSB2 1 0 :1:2 
+`uc 1 ANSB3 1 0 :1:3 
+`uc 1 ANSB4 1 0 :1:4 
+`uc 1 ANSB5 1 0 :1:5 
+`uc 1 ANSB6 1 0 :1:6 
+`uc 1 ANSB7 1 0 :1:7 
+]
+"33318
+[u S101 . 1 `S92 1 . 1 0 ]
+"33318
+"33318
+[v _ANSELBbits ANSELBbits `VES101  1 e 1 @3907 ]
+"33363
+[v _WPUB WPUB `VEuc  1 e 1 @3908 ]
+"35743
+"35743
+[v _BRG16 BRG16 `VEb  1 e 0 @2299 ]
+"35746
+[v _BRGH BRGH `VEb  1 e 0 @2290 ]
+"37219
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"39286
+[v _PEIE PEIE `VEb  1 e 0 @94 ]
+"39970
+[v _RCIE RCIE `VEb  1 e 0 @14541 ]
+"39973
+[v _RCIF RCIF `VEb  1 e 0 @14461 ]
+"41188
+[v _SPEN SPEN `VEb  1 e 0 @2287 ]
+"42007
+[v _TMR0IE TMR0IE `VEb  1 e 0 @14517 ]
+"42010
+[v _TMR0IF TMR0IF `VEb  1 e 0 @14437 ]
+"42487
+[v _TXEN TXEN `VEb  1 e 0 @2293 ]
+"42490
+[v _TXIE TXIE `VEb  1 e 0 @14540 ]
+"42493
+[v _TXIF TXIF `VEb  1 e 0 @14460 ]
+"46 D:\lab7_C.X\lab7_C.c
+[v _rtemp rtemp `uc  1 e 1 0 ]
+[v _sflag sflag `uc  1 e 1 0 ]
+"49
+[v _pcnt pcnt `uc  1 e 1 0 ]
+"50
+[v _rcnt rcnt `uc  1 e 1 0 ]
+"51
+[v _count count `uc  1 e 1 0 ]
+"52
+[v _index index `uc  1 e 1 0 ]
+"53
+[v _segCode segCode `uc  1 e 1 0 ]
+"55
+[v _table_3 table_3 `DC[1]uc  1 e 1 0 ]
+"56
+[v _table_2 table_2 `DC[2]uc  1 e 2 0 ]
+"57
+[v _table_1 table_1 `DC[3]uc  1 e 3 0 ]
+"58
+[v _table_0 table_0 `DC[4]uc  1 e 4 0 ]
+"192
+[v _main main `(v  1 e 1 0 ]
+{
+"217
+} 0
+"241
+[v _initTMR0 initTMR0 `(v  1 e 1 0 ]
+{
+"245
+} 0
+"219
+[v _initSerial initSerial `(v  1 e 1 0 ]
+{
+"239
+} 0
+"247
+[v _initInterrupt initInterrupt `(v  1 e 1 0 ]
+{
+"254
+} 0
+"179
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"190
+} 0
+"83
+[v _check_btn check_btn `(v  1 e 1 0 ]
+{
+"178
+} 0
+"78
+[v _singlepush singlepush `(v  1 e 1 0 ]
+{
+"81
+} 0
+"64
+[v _longpush longpush `(v  1 e 1 0 ]
+{
+"69
+} 0
+"71
+[v _doublepush doublepush `(v  1 e 1 0 ]
+{
+"76
+} 0

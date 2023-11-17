@@ -1,0 +1,51 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F18854 ]
+[d frameptr 6 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c99\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"13 D:\test\test.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+"18
+[v _main main `(v  1 e 1 0 ]
+"384 C:/Users/zhaozhan/.mchp_packs/Microchip/PIC16F1xxxx_DFP/1.19.363/xc8\pic\include\proc\pic16f18854.h
+[v _PORTA PORTA `VEuc  1 e 1 @12 ]
+[s S28 . 1 `uc 1 RA0 1 0 :1:0 
+`uc 1 RA1 1 0 :1:1 
+`uc 1 RA2 1 0 :1:2 
+`uc 1 RA3 1 0 :1:3 
+`uc 1 RA4 1 0 :1:4 
+`uc 1 RA5 1 0 :1:5 
+`uc 1 RA6 1 0 :1:6 
+`uc 1 RA7 1 0 :1:7 
+]
+"401
+[u S37 . 1 `S28 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES37  1 e 1 @12 ]
+"508
+[v _PORTC PORTC `VEuc  1 e 1 @14 ]
+"591
+[v _TRISA TRISA `VEuc  1 e 1 @17 ]
+"715
+[v _TRISC TRISC `VEuc  1 e 1 @19 ]
+"32690
+[v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
+"33930
+[v _ANSELC ANSELC `VEuc  1 e 1 @3918 ]
+"18 D:\test\test.c
+[v _main main `(v  1 e 1 0 ]
+{
+"40
+} 0
+"13
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"15
+} 0

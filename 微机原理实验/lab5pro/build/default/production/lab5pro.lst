@@ -1,0 +1,371 @@
+
+
+Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
+                                                                                                           Thu Jul 13 21:33:09 2023
+
+
+     1                           	processor	16F18854
+     2                           	pagewidth 132
+     3                           	psect	udata_shr,global,class=COMMON,space=1,delta=1,noexec
+     4                           	psect	udata,global,class=RAM,space=1,delta=1,noexec
+     5                           	psect	udata_bank0,global,class=BANK0,space=1,delta=1,noexec
+     6                           	psect	udata_bank1,global,class=BANK1,space=1,delta=1,noexec
+     7                           	psect	udata_bank2,global,class=BANK2,space=1,delta=1,noexec
+     8                           	psect	udata_bank3,global,class=BANK3,space=1,delta=1,noexec
+     9                           	psect	udata_bank4,global,class=BANK4,space=1,delta=1,noexec
+    10                           	psect	udata_bank5,global,class=BANK5,space=1,delta=1,noexec
+    11                           	psect	udata_bank6,global,class=BANK6,space=1,delta=1,noexec
+    12                           	psect	code,global,class=CODE,delta=2
+    13                           	psect	data,global,class=STRCODE,delta=2,noexec
+    14                           	psect	edata,global,class=EEDATA,space=3,delta=2,noexec
+    15                           	psect	init,global,class=CODE,delta=2
+    16                           	psect	end_init,global,class=CODE,delta=2
+    17                           	psect	powerup,global,class=CODE,delta=2
+    18                           	psect	cinit,global,class=CODE,delta=2
+    19                           	psect	functab,global,class=ENTRY,delta=2
+    20                           	psect	idloc,global,class=IDLOC,delta=2,noexec
+    21                           	psect	eeprom_data,global,class=EEDATA,space=3,delta=2,noexec
+    22                           	psect	intentry,global,class=CODE,delta=2
+    23                           	psect	reset_vec,global,class=CODE,delta=2
+    24                           	psect	config,global,class=CONFIG,delta=2
+    25                           	psect	CommonVar,global,class=COMMON,space=1,delta=1
+    26                           	psect	main,global,class=CODE,delta=2
+    27                           	psect	pa_nodes0,global,class=CODE,delta=2
+    28     007F                     
+    29                           	psect	edata
+    30     0000                     stk_offset	set	0
+    31     0000                     auto_size	set	0
+    32                           
+    33                           ; stack_auto defines a symbol /name/_offset which equates to the
+    34                           ; stack offset of the auto object in question
+    35     0000                     
+    36                           ; stack_param defines a symbol /name/_offset which equates to the
+    37                           ; stack offset of the parameter object in question
+    38     0000                     
+    39                           ; alloc_stack adjusts the SP to allocate space for auto objects
+    40                           ; it also links in to the btemp symbol so that can be used
+    41     0000                     
+    42                           ; restore_stack adjusts the SP to remove all auto and parameter
+    43                           ; objects from the stack prior to returning from a function
+    44     0000                     
+    45                           	psect	cinit
+    46     0000                     start_initialization:
+    47                           
+    48                           	psect	intentry
+    49     0004  30FF               	movlw	255
+    50     0005  01F6               	clrf	246
+    51                           
+    52                           ; Interrupt service routine
+    53                           ; clear overflow flag
+    54     0006  002E               	banksel	1804
+    55     0007  128C               	bcf	1804,5
+    56                           
+    57                           ; reset
+    58     0008  0020               	banksel	18
+    59     0009  0092               	movwf	18
+    60     000A  003E               	banksel	3908
+    61     000B  00C4               	movwf	3908
+    62     000C  01F2               	clrf	242
+    63     000D  0020               	banksel	13
+    64     000E  080D               	movf	13,w
+    65     000F  00F5               	movwf	245
+    66                           
+    67                           ; query table
+    68     0010  1DF5               	btfss	245,3
+    69     0011  2079               	call	query_3
+    70     0012  1D75               	btfss	245,2
+    71     0013  207E               	call	query_2
+    72     0014  1CF5               	btfss	245,1
+    73     0015  2083               	call	query_1
+    74     0016  1C75               	btfss	245,0
+    75     0017  2088               	call	query_0
+    76     0018  0020               	banksel	18
+    77     0019  1192               	bcf	18,3
+    78     001A  0020               	banksel	13
+    79     001B  118D               	bcf	13,3
+    80                           
+    81                           ; PORTB to cur, index += 1
+    82     001C  080D               	movf	13,w
+    83     001D  00F5               	movwf	245
+    84     001E  0AF2               	incf	242,f
+    85                           
+    86                           ; query table
+    87     001F  1D75               	btfss	245,2
+    88     0020  207E               	call	query_2
+    89     0021  1CF5               	btfss	245,1
+    90     0022  2083               	call	query_1
+    91     0023  1C75               	btfss	245,0
+    92     0024  2088               	call	query_0
+    93     0025  0020               	banksel	18
+    94     0026  1112               	bcf	18,2
+    95     0027  0020               	banksel	13
+    96     0028  110D               	bcf	13,2
+    97                           
+    98                           ; PORTB to cur, index += 1
+    99     0029  080D               	movf	13,w
+   100     002A  00F5               	movwf	245
+   101     002B  0AF2               	incf	242,f
+   102                           
+   103                           ; query table
+   104     002C  1CF5               	btfss	245,1
+   105     002D  2083               	call	query_1
+   106     002E  1C75               	btfss	245,0
+   107     002F  2088               	call	query_0
+   108     0030  0020               	banksel	18
+   109     0031  1092               	bcf	18,1
+   110     0032  0020               	banksel	13
+   111     0033  108D               	bcf	13,1
+   112                           
+   113                           ; PORTB to cur, index += 1
+   114     0034  080D               	movf	13,w
+   115     0035  00F5               	movwf	245
+   116     0036  0AF2               	incf	242,f
+   117                           
+   118                           ; query table
+   119     0037  1C75               	btfss	245,0
+   120     0038  2088               	call	query_0
+   121                           
+   122                           ;check the two push in the same time
+   123     0039  3002               	movlw	2
+   124     003A  0276               	subwf	246,w
+   125     003B  1C03               	btfss	3,0
+   126     003C  2841               	goto	Rbtn
+   127                           
+   128                           ;check if there is a btn was pushed
+   129     003D  3001               	movlw	1
+   130     003E  06F6               	xorwf	246,f
+   131     003F  1903               	btfsc	3,2
+   132     0040  284B               	goto	Pbtn
+   133     0041                     Rbtn:	
+   134                           ;release the btn
+   135                           
+   136     0041  3002               	movlw	2
+   137     0042  0AF4               	incf	244,f
+   138                           
+   139                           ;rcnt>=2?
+   140     0043  0274               	subwf	244,w
+   141     0044  1C03               	btfss	3,0
+   142     0045  01F3               	clrf	243
+   143     0046  303C               	movlw	60
+   144     0047  06F4               	xorwf	244,f
+   145     0048  1D03               	btfss	3,2
+   146     0049  0009               	retfie
+   147     004A  285E               	goto	singlepush
+   148     004B                     Pbtn:	
+   149                           ;push the btn
+   150                           
+   151     004B  3002               	movlw	2
+   152     004C  0AF3               	incf	243,f
+   153     004D  0273               	subwf	243,w
+   154     004E  1C03               	btfss	3,0
+   155     004F  2859               	goto	checkdoublepush
+   156     0050                     continue:
+   157                           
+   158                           ;pcnt>=2?
+   159     0050  3002               	movlw	2
+   160     0051  0273               	subwf	243,w
+   161     0052  1C03               	btfss	3,0
+   162     0053  01F4               	clrf	244
+   163     0054  30C8               	movlw	200
+   164     0055  06F3               	xorwf	243,f
+   165     0056  1903               	btfsc	3,2
+   166     0057  0009               	retfie
+   167     0058  286E               	goto	longpush
+   168     0059                     checkdoublepush:
+   169     0059  303B               	movlw	59
+   170     005A  0273               	subwf	243,w
+   171     005B  1803               	btfsc	3,0
+   172     005C  2865               	goto	doublepush
+   173     005D  2850               	goto	continue
+   174     005E                     singlepush:
+   175     005E  0020               	banksel	12
+   176     005F  0871               	movf	241,w
+   177     0060  008C               	movwf	12
+   178     0061  3007               	movlw	7
+   179                           
+   180                           ; position
+   181     0062  0020               	banksel	14
+   182     0063  008E               	movwf	14
+   183     0064  0009               	retfie
+   184     0065                     doublepush:
+   185     0065  30C9               	movlw	201
+   186     0066  00F3               	movwf	243
+   187     0067  0020               	banksel	12
+   188     0068  0871               	movf	241,w
+   189     0069  008C               	movwf	12
+   190     006A  300B               	movlw	11
+   191                           
+   192                           ; position
+   193     006B  0020               	banksel	14
+   194     006C  008E               	movwf	14
+   195     006D  0009               	retfie
+   196     006E                     longpush:
+   197     006E  3046               	movlw	70
+   198     006F  00F4               	movwf	244
+   199     0070  30C9               	movlw	201
+   200     0071  00F3               	movwf	243
+   201     0072  0020               	banksel	12
+   202     0073  0871               	movf	241,w
+   203     0074  008C               	movwf	12
+   204     0075  300D               	movlw	13
+   205                           
+   206                           ; position
+   207     0076  0020               	banksel	14
+   208     0077  008E               	movwf	14
+   209     0078  0009               	retfie
+   210     0079                     query_3:
+   211     0079  0AF6               	incf	246,f
+   212     007A  0872               	movf	242,w
+   213     007B  208D               	call	Table_3
+   214     007C  00F1               	movwf	241
+   215     007D  0008               	return
+   216     007E                     query_2:
+   217     007E  0AF6               	incf	246,f
+   218     007F  0872               	movf	242,w
+   219     0080  208F               	call	Table_2
+   220     0081  00F1               	movwf	241
+   221     0082  0008               	return
+   222     0083                     query_1:
+   223     0083  0AF6               	incf	246,f
+   224     0084  0872               	movf	242,w
+   225     0085  2092               	call	Table_1
+   226     0086  00F1               	movwf	241
+   227     0087  0008               	return
+   228     0088                     query_0:
+   229     0088  0AF6               	incf	246,f
+   230     0089  0872               	movf	242,w
+   231     008A  2096               	call	Table_0
+   232     008B  00F1               	movwf	241
+   233     008C  0008               	return
+   234     008D                     Table_3:
+   235     008D  0782               	addwf	2,f
+   236     008E  34F7               	retlw	247	;10
+   237     008F                     Table_2:
+   238     008F  0782               	addwf	2,f
+   239     0090  34EF               	retlw	239	;9
+   240     0091  34FD               	retlw	253	;6
+   241     0092                     Table_1:
+   242     0092  0782               	addwf	2,f
+   243     0093  34FF               	retlw	255	;8
+   244     0094  34ED               	retlw	237	;5
+   245     0095  34CF               	retlw	207	;3
+   246     0096                     Table_0:
+   247     0096  0782               	addwf	2,f
+   248     0097  3427               	retlw	39	;7
+   249     0098  34E6               	retlw	230	;4
+   250     0099  34DB               	retlw	219	;2
+   251     009A  3406               	retlw	6	; PIC10/12/16
+   252                           
+   253                           	psect	reset_vec
+   254     0000                     reset_vec:
+   255     0000  3180  289B  3180   	ljmp	_main
+   256                           
+   257                           	psect	config
+   258     8007  DFEC               	dw	57324
+   259     8008  F7FF               	dw	63487
+   260     8009  FFBF               	dw	65471
+   261     800A  EFFE               	dw	61438
+   262     800B  FFFF               	dw	65535
+   263                           
+   264                           	psect	CommonVar
+   265     0070                     charcase:
+   266     0070                     	ds	1
+   267     00F4                     
+   268                           ; long press var
+   269     00F6                     
+   270                           	psect	main
+   271     009B                     _main:
+   272                           
+   273                           ;TODO
+   274                           ;PORTA config
+   275     009B  0020               	banksel	12
+   276     009C  018C               	clrf	12
+   277     009D  0020               	banksel	22
+   278     009E  0196               	clrf	22
+   279     009F  003E               	banksel	3896
+   280     00A0  01B8               	clrf	3896
+   281     00A1  0020               	banksel	17
+   282     00A2  3000               	movlw	0
+   283     00A3  0091               	movwf	17
+   284                           
+   285                           ;PORTC config
+   286     00A4  0020               	banksel	14
+   287     00A5  018E               	clrf	14
+   288     00A6  0020               	banksel	24
+   289     00A7  0198               	clrf	24
+   290     00A8  003E               	banksel	3918
+   291     00A9  01CE               	clrf	3918
+   292     00AA  0020               	banksel	19
+   293     00AB  3000               	movlw	0
+   294     00AC  0093               	movwf	19
+   295                           
+   296                           ;PORTB config
+   297     00AD  0020               	banksel	13
+   298     00AE  018D               	clrf	13
+   299     00AF  0020               	banksel	23
+   300     00B0  0197               	clrf	23
+   301     00B1  003E               	banksel	3907
+   302     00B2  01C3               	clrf	3907
+   303     00B3  0020               	banksel	18
+   304     00B4  30FF               	movlw	255
+   305     00B5  0092               	movwf	18
+   306     00B6  003E               	banksel	3908
+   307     00B7  30FF               	movlw	255
+   308     00B8  00C4               	movwf	3908
+   309                           
+   310                           ;TIMER0 config
+   311     00B9  0020               	banksel	30
+   312     00BA  3089               	movlw	137
+   313     00BB  009E               	movwf	30
+   314     00BC  0020               	banksel	31
+   315     00BD  3050               	movlw	80
+   316     00BE  009F               	movwf	31
+   317     00BF  002E               	banksel	1804
+   318     00C0  128C               	bcf	1804,5
+   319     00C1  0020               	banksel	29
+   320     00C2  30FA               	movlw	250
+   321     00C3  009D               	movwf	29
+   322                           
+   323                           ; INTERRUPT config
+   324     00C4  002E               	banksel	1804
+   325     00C5  128C               	bcf	1804,5
+   326                           
+   327                           ; ((INTCON) and 07Fh), 7, PIE enable
+   328     00C6  0020               	banksel	11
+   329     00C7  178B               	bsf	11,7
+   330     00C8  170B               	bsf	11,6
+   331                           
+   332                           ; ((PIE0) and 07Fh), 5 enable
+   333     00C9  002E               	banksel	1814
+   334     00CA  1696               	bsf	1814,5
+   335     00CB  3000               	movlw	0
+   336     00CC  00F3               	movwf	243
+   337     00CD  30FA               	movlw	250
+   338     00CE  00F4               	movwf	244
+   339     00CF                     loop:	
+   340                           ; init LED
+   341                           ; test
+   342                           
+   343     00CF  0000               	nop
+   344     00D0  28CF               	goto	loop
+
+
+Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
+Symbol Table                                                                                               Thu Jul 13 21:33:09 2023
+
+                             PCL 0002                               cur 00F5                              LATA 0016  
+                            LATB 0017                              LATC 0018                              PIE0 0716  
+                            PIR0 070C                              WPUB 0F44                              Pbtn 004B  
+                            Rbtn 0041                              pcnt 00F3                              loop 00CF  
+                            rcnt 00F4                             TMR0H 001D                             PORTA 000C  
+                           PORTB 000D                             PORTC 000E                             TRISA 0011  
+                           TRISB 0012                             TRISC 0013                             _main 009B  
+                           count 00F6                             index 00F2                            ANSELA 0F38  
+                          ANSELB 0F43                            ANSELC 0F4E                            T0CON0 001E  
+                          T0CON1 001F                            INTCON 000B                            STATUS 0003  
+                         Table_0 0096                           Table_1 0092                           Table_2 008F  
+                         Table_3 008D                           segCode 00F1                           query_0 0088  
+                         query_1 0083                           query_2 007E                           query_3 0079  
+                        charcase 0070                          continue 0050                          longpush 006E  
+            start_initialization 0000                   checkdoublepush 0059                        doublepush 0065  
+                      singlepush 005E                         reset_vec 0000  
